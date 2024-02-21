@@ -3,17 +3,19 @@ import { PieChart as Pie} from "react-minimal-pie-chart"
 
 const PieChart = () => {
 
+    const [statusData, setStatusData] = React.useState([55, 35, 25])
+
     const data=[
-        { title: 'One', value: 10, color: '#6DFF85', label: '55%'},
-        { title: 'Two', value: 15, color: '#AFFFBC', label: '30%'},
-        { title: 'Three', value: 20, color: 'white', label: '' },
+        { title: 'One', value: statusData[0], color: '#6DFF85', label: statusData[0]+'%'},
+        { title: 'Two', value: statusData[1], color: '#AFFFBC', label: statusData[1]+'%'},
+        { title: 'Three', value: statusData[2], color: 'white', label: '' },
         ]
 
     return(
         <div className="pie-chart-cont">
             <Pie
             className="piechart--chart"
-            radius = {50}
+            radius = {45}
             startAngle={270}
             lineWidth={60}
             data={data}
@@ -22,7 +24,7 @@ const PieChart = () => {
             />
 
             <div className="piechart--center">
-                <p className="piechart--centerperc">55%</p>
+                <p className="piechart--centerperc">{statusData[0]}%</p>
                 <p className="piechart--earned">Earned</p>
             </div>
         </div>
