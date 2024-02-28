@@ -3,9 +3,12 @@ import PieChart from "./PieChart";
 import Navbar from "./Navbar";
 
 const Home = () => {
+    const style = {
+        backgroundColor : "blue"
+    }
     return (
         <div className="home-cont">
-            <Navbar />
+            <Navbar page={0}/>
             <div className="home--top">
                 <div className="home--left">
                     <p>96 units</p>

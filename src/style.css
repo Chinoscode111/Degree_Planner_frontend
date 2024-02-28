@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    
 }
 
 .bold{
@@ -21,8 +22,18 @@
 
 .navbar > *{
     margin: 40px;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
 }
+
+
+
+
+
+
+
+
 
 .home-cont{
     display: flex;
@@ -85,5 +96,6 @@
 
 .home--bottom > ul > li{
     margin-bottom: 10px;
+    font-size: 1.2rem;
 }
 
