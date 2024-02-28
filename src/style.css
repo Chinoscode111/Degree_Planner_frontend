@@ -27,6 +27,10 @@
     text-decoration: none;
 }
 
+.navbar > *:hover{
+    font-weight: bold;
+}
+
 
 
 
