@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 *{
     padding: 0;
     margin: 0;
@@ -56,7 +58,7 @@
     padding: 40px;
 }
 
-.home--left > p{
+.home--left > p, .home--right>h2{
     margin-bottom: 60px;
     font-weight: bold;
     font-size: 1.2rem;
@@ -102,6 +104,18 @@
     margin-bottom: 10px;
     font-size: 1.2rem;
 }
+
+.home--right .progress-container{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    margin: 5mm 0px;
+    align-items: center;
+    font-size: 32px;
+    font-weight: 400;
+    font-family: "Montserrat", sans-serif;
+}
+
 
 
 
