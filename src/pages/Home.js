@@ -8,12 +8,6 @@ const Home = () => {
         backgroundColor : "blue"
     }
 
-    const rightStyle = {
-        
-        width:"90%",
-        height:"30vh",
-        backgroundColor : "blanchedalmond",
-    }
     return (
         <div className="home-cont">
             <Navbar page={0}/>
@@ -22,9 +16,9 @@ const Home = () => {
                     <p>96 units</p>
                     <PieChart />
                 </div>
-                <div className="home--right" style={rightStyle}>
+                <div className="home--right" >
                     <h2>Units per course type</h2>
-                    <p>Required units</p>
+                    <p className="primary-font" id="req-para" >Required units</p>
 
                     <Progress_Bar name = "Core" credits = {36} />
                     <Progress_Bar name = "Major" credits = {42} />

@@ -8,8 +8,8 @@ const Progress_Bar = ({name, credits}) => {
   return (
     <>
     <div className="progress-container" >
-      <h4>{name}</h4>
-      <p>{credits}</p>
+      <h4 className='primary-font' >{name}</h4>
+      <p className='primary-font' >{credits}</p>
       <ProgressBar
         percent={(credits/96)*100}
         filledBackground="#6DFF85"
