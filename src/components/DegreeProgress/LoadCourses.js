@@ -8,22 +8,18 @@ const LoadCourses = () =>{
             courses: [{
                 name: "Linear Algebra",
                 code: "MA110",
-                group: "MA"
             },
             {
                 name: "Introduction to Mathematics",
                 code: "MA114",
-                group: "MA"
             },
             {
                 name: "History of Mathematics",
                 code: "MA113",
-                group: "MA"
             },
             {
                 name: "Calculus",
                 code: "MA105",
-                group: "MA"
             }]
         },
         {
@@ -31,19 +27,24 @@ const LoadCourses = () =>{
             courses: [{
                 name: "Classical and Quantum Physics",
                 code: "PH110",
-                group: "PH"
             },
             {
                 name: "Physics Lab",
                 code: "PH117",
-                group: "PH"
+            }]
+        },
+        {
+            group: "CS",
+            courses: [{
+                name: "Introduction to computer science",
+                code: "CS101",
             }]
         }
         
     ]
 
     const [coursesList, setCoursesList] = React.useState(courses.map(group => (
-        {...group, courses: group.courses.map(course => ({...course, toggle: true})), toggle: true}
+        {...group, courses: group.courses.map(course => ({...course, toggle: true}))}
     )))
     console.log("courses list", coursesList)
 
@@ -52,7 +53,7 @@ const LoadCourses = () =>{
         setCoursesList(prevCourseList => (
             prevCourseList.map(group => (
                 group.group==groupName.group?
-                    {...group, toggle: !group.toggle} : group
+                { ...group, courses: group.courses.map(prevCourse => ({ ...prevCourse, toggle: !prevCourse.toggle })) } : group
             ))
         ))
     }
@@ -78,23 +79,12 @@ const LoadCourses = () =>{
 
     function createGroup(group){
         console.log("all group", group)
-        if(group.toggle){
-            return(
-                <>
-                    <button onClick={() => (toggle(group))}>{group.group}</button>
-                    {group.courses.map(course => (
-                    course.toggle ? createLabel(course): <p></p>
-                    ))}
-    
-                </>
-                
+        return(
+            <>
+            <button onClick={() => (toggle(group))}>{group.group}</button>
+            {group.courses.map(course => course.toggle ? createLabel(course) : <></>)}
+            </>
             )
-        }
-        else{
-            return(
-                <button onClick={() => (toggle(group))}>{group.group}</button>
-            )
-        }
         
     }
 
@@ -115,41 +105,22 @@ const LoadCourses = () =>{
 
 
 
-    function handleChange(event){
-        // setText(event.target.value)
-
-        const searchText = event.target.value.toLowerCase()
-        console.log(searchText)
-
-
-        // const filteredCourses = courses.filter(course => (
-        //     course.name.toLowerCase().startsWith(searchText) || course.code.toLowerCase().startsWith(searchText)
-        // ))
-        const filteredCourses = courses.filter(group => (
-            group.courses.map(course => (
-                course.name.toLowerCase().startsWith(searchText) || course.code.toLowerCase().startsWith(searchText)
-            ))
-        ))
-
-        // console.log("filtered", filteredCourses)
-
-        // const filteredCoursesElements = filteredCourses.map(group => (
-        //     group.courses.map(course => createLabel(course))
-        // ))
-
-        // console.log(filteredCoursesElements)
-
-        // setDisplayCourses(filteredCoursesElements.flat())
-
-
-        // // filterCourses.forEach(state => {
-        // //     setDisplayCourses()
-        // // })
-        // console.log(displayCourses)
-
-        // console.log(filterCourses)
-
+    function handleChange(event) {
+        const searchText = event.target.value.toLowerCase();
+    
+        const updatedCoursesList = coursesList.map(group => ({
+            ...group,
+            courses: group.courses.map(course => ({
+                ...course,
+                toggle: course.name.toLowerCase().startsWith(searchText) || course.code.toLowerCase().startsWith(searchText)
+            }))
+        }))
+    
+        setCoursesList(updatedCoursesList)
+    
+        setDisplayGroups(updatedCoursesList.map(group => createGroup(group)))
     }
+    
 
 
 
