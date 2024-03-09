@@ -35,16 +35,9 @@ const LoadCourses = () =>{
     }
 
 
-    const [displayCourses, setDisplayCourses] = React.useState(courses.map(course => (
-        createLabel(course)
+    const [displayCourses, setDisplayCourses] = React.useState(coursesList.map(course => (
+        course.toggle ? createLabel(course) : <></>
     )))
-
-
-
-
-
-
-
 
 
     function handleChange(event) {
@@ -58,7 +51,7 @@ const LoadCourses = () =>{
     
         setCoursesList(updatedCoursesList)
     
-        setDisplayCourses(courses.map(course => (
+        setDisplayCourses(coursesList.map(course => (
             createLabel(course))))
     }
     
