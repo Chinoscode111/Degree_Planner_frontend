@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 *{
     padding: 0;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     
+}
+
+.primary-font{
+    font-weight: 400;
+    font-size: 32px;
+    font-family: "Montserrat", sans-serif;
 }
 
 .bold{
@@ -46,6 +54,7 @@
 
 .home--top{
     display: flex;
+    justify-content: space-evenly;
 }
 
 .home--left{
@@ -56,10 +65,11 @@
     padding: 40px;
 }
 
-.home--left > p{
+.home--left > p, .home--right>h2{
     margin-bottom: 60px;
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-weight: 700;
+    font-size: 32px;
+    font-family: "Montserrat", sans-serif;
 }
 
 .pie-chart-cont{
@@ -102,6 +112,31 @@
     margin-bottom: 10px;
     font-size: 1.2rem;
 }
+
+.home--right{
+    width: 50%;
+    padding: 11mm;
+}
+
+.home--right .progress-container{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    margin: 5mm 0px;
+    align-items: center;
+}
+
+.home--right #req-para{
+    width: fit-content;
+    margin: 2mm auto;
+    display: block;
+}
+
+
+.home--right .progress-container h4{
+    width: 50mm;
+}
+
 
 
 

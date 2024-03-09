@@ -1,11 +1,13 @@
 import React from "react";
 import PieChart from "../components/Home/PieChart";
 import Navbar from "../components/shared/Navbar";
+import Progress_Bar from "../components/Home/Progress_Bar";
 
 const Home = () => {
     const style = {
         backgroundColor : "blue"
     }
+
     return (
         <div className="home-cont">
             <Navbar page={0}/>
@@ -14,7 +16,15 @@ const Home = () => {
                     <p>96 units</p>
                     <PieChart />
                 </div>
-                <div className="home--right"></div>
+                <div className="home--right" >
+                    <h2>Units per course type</h2>
+                    <p className="primary-font" id="req-para" >Required units</p>
+
+                    <Progress_Bar name = "Core" credits = {36} />
+                    <Progress_Bar name = "Major" credits = {42} />
+                    <Progress_Bar name = "Liberal arts" credits = {45} />
+                    <Progress_Bar name = "Elective" credits = {9} />
+                </div>
             </div>
             <div className="home--bottom">
                 <ul>
