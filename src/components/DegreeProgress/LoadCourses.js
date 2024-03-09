@@ -141,42 +141,42 @@ const LoadCourses = () =>{
 
 
 
-    // function allowDrop(ev) {
-    //     ev.preventDefault();
-    // }
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
 
-    // function drag(ev) {
-    //     ev.dataTransfer.setData("text", ev.target.id);
-    // }
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
 
-    // function drop(ev) {
-    //     ev.preventDefault();
-    //     var data = ev.dataTransfer.getData("text");
-    //     var element = document.getElementById(data);
-    //     if (element instanceof Node) {
-    //         ev.target.appendChild(element);
-    //     } else {
-    //         console.error("Element not found or is not a valid Node:", data, element);
-    //     }
-    //     console.log("data", data)
-    //     console.log("element", element)
-    // }
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        var element = document.getElementById(data);
+        if (element instanceof Node) {
+            ev.target.appendChild(element);
+        } else {
+            console.error("Element not found or is not a valid Node:", data, element);
+        }
+        console.log("data", data)
+        console.log("element", element)
+    }
     
 
 
-    // function dragElement(course){
-    //     console.log("course", course)
-    //     return(
-    //         createLabel(course)
-    //     )
+    function dragElement(course){
+        console.log("course", course)
+        return(
+            createLabel(course)
+        )
 
-    // }
+    }
 
 
     return (
         <div className="load-courses-cont">
-            {/* <div className="courses-cont" id="drop-1" onDrop={drop} onDragOver={allowDrop}> */}
-            <div>
+            <div className="courses-cont" id="drop-1" onDrop={drop} onDragOver={allowDrop}>
+            {/* <div> */}
                 <input 
                     type="text"
                     placeholder="Enter course"
@@ -186,12 +186,12 @@ const LoadCourses = () =>{
             </div>
             
 
-            {/* <div>
+            <div>
                 <h2>Fall semester</h2>
                 <div onDrop={drop} onDragOver={allowDrop} id="drop-here"><p>drop</p></div>
                 <div draggable="true" onDragStart={drag} id="drop">{dragElement(courses[0].courses[0])}</div>
                 <div onDrop={drop} onDragOver={allowDrop} id="drop-here-2"><p>drop-2</p></div>
-            </div> */}
+            </div>
         </div>
         
     )
