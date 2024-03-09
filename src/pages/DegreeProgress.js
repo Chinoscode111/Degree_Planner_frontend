@@ -1,12 +1,17 @@
 import React from "react";
 import Navbar from "../components/shared/Navbar";
 import LoadCourses from "../components/DegreeProgress/LoadCourses";
+import CourseManager from "../components/DegreeProgress/CourseManager";
 
 const DegreeProgress = () => {
     return(
         <div>
             <Navbar page={1}/>
-            <LoadCourses />
+            <div className="degree-progress-cont">
+                <LoadCourses />
+                <CourseManager />
+            </div>
+            
         </div>
         
     )
