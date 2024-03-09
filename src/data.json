@@ -1,0 +1,506 @@
+[
+    {
+        "title": "Introduction to Aerospace Engineering",
+        "code": "AE101",
+        "tag": "minor",
+        "semester": "autumn",
+        "credits": 6.0
+    },
+    {
+        "title": "Aircraft Structures",
+        "code": "AE201",
+        "tag": "core",
+        "semester": "autumn",
+        "credits": 8.0
+    },
+    {
+        "title": "Aerodynamics",
+        "code": "AE301",
+        "tag": "core",
+        "semester": "autumn",
+        "credits": 6.0
+    },
+    {
+        "title": "Flight Dynamics",
+        "code": "AE401",
+        "tag": "core",
+        "semester": "autumn",
+        "credits": 6.0
+    },
+    {
+        "title": "Spacecraft Design",
+        "code": "AE501",
+        "tag": "elective",
+        "semester": "autumn",
+        "credits": 6.0
+    },
+    {
+        "title": "Electrical Circuits",
+        "code": "EE101",
+        "tag": "core",
+        "semester": "autumn",
+        "credits": 6.0
+    },
+    {
+        "title": "Power Electronics",
+        "code": "EE201",
+        "tag": "elective",
+        "semester": "autumn",
+        "credits": 8.0
+    },
+    {
+        "title": "Renewable Energy Systems",
+        "code": "EE301",
+        "tag": "core",
+        "semester": "autumn",
+        "credits": 6.0
+    },
+    {
+        "title": "Control Theory",
+        "code": "EE401",
+        "tag": "core",
+        "semester": "autumn",
+        "credits": 6.0
+    },
+    {
+        "title": "Digital Signal Processing",
+        "code": "EE501",
+        "tag": "core",
+        "semester": "autumn",
+        "credits": 8.0
+    },
+    {
+        "title": "Embedded Systems",
+        "code": "ES101",
+        "tag": "core",
+        "semester": "autumn",
+        "credits": 6.0
+    },
+    {
+        "title": "Real-Time Operating Systems",
+        "code": "ES201",
+        "tag": "elective",
+        "semester": "autumn",
+        "credits": 8.0
+    },
+    {
+        "title": "Computer Vision",
+        "code": "ES301",
+        "tag": "core",
+        "semester": "autumn",
+        "credits": 6.0
+    },
+    {
+        "title": "Internet of Things",
+        "code": "ES401",
+        "tag": "core",
+        "semester": "autumn",
+        "credits": 6.0
+    },
+    {
+        "title": "Robotics",
+        "code": "ES501",
+        "tag": "elective",
+        "semester": "autumn",
+        "credits": 8.0
+    },
+    {
+        "title": "Mathematics for Engineers",
+        "code": "MA101",
+        "tag": "core",
+        "semester": "autumn",
+        "credits": 6.0
+    },
+    {
+        "title": "Numerical Analysis",
+        "code": "MA201",
+        "tag": "core",
+        "semester": "autumn",
+        "credits": 8.0
+    },
+    {
+        "title": "Optimization Methods",
+        "code": "MA301",
+        "tag": "minor",
+        "semester": "autumn",
+        "credits": 6.0
+    },
+    {
+        "title": "Probability Theory",
+        "code": "MA401",
+        "tag": "core",
+        "semester": "autumn",
+        "credits": 6.0
+    },
+    {
+        "title": "Differential Equations",
+        "code": "MA501",
+        "tag": "core",
+        "semester": "autumn",
+        "credits": 8.0
+    },
+    {
+        "title": "Introduction to Computer Science",
+        "code": "CS101",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Data Structures and Algorithms",
+        "code": "CS201",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Database Management Systems",
+        "code": "CS301",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Machine Learning",
+        "code": "CS401",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Artificial Intelligence",
+        "code": "CS501",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Web Development",
+        "code": "CS601",
+        "tag": "elective",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Mobile App Development",
+        "code": "CS602",
+        "tag": "elective",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Computer Networks",
+        "code": "CS701",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Operating Systems",
+        "code": "CS801",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Software Engineering",
+        "code": "CS901",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Introduction to Python Programming",
+        "code": "CS102",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 3.0
+    },
+    {
+        "title": "Cybersecurity Fundamentals",
+        "code": "CS202",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 3.0
+    },
+    {
+        "title": "Computer Graphics",
+        "code": "CS302",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 3.0
+    },
+    {
+        "title": "Introduction to Java Programming",
+        "code": "CS402",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 3.0
+    },
+    {
+        "title": "Data Mining",
+        "code": "CS502",
+        "tag": "elective",
+        "semester": "fall",
+        "credits": 3.0
+    },
+    {
+        "title": "Cloud Computing",
+        "code": "CS602",
+        "tag": "elective",
+        "semester": "fall",
+        "credits": 3.0
+    },
+    {
+        "title": "Parallel Computing",
+        "code": "CS702",
+        "tag": "elective",
+        "semester": "fall",
+        "credits": 3.0
+    },
+    {
+        "title": "Human-Computer Interaction",
+        "code": "CS802",
+        "tag": "elective",
+        "semester": "fall",
+        "credits": 3.0
+    },
+    {
+        "title": "Computer Vision",
+        "code": "CS902",
+        "tag": "elective",
+        "semester": "fall",
+        "credits": 3.0
+    },
+    {
+        "title": "Big Data Analytics",
+        "code": "CS103",
+        "tag": "elective",
+        "semester": "fall",
+        "credits": 8.0
+    },
+    {
+        "title": "Software Testing and Quality Assurance",
+        "code": "CS203",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 8.0
+    },
+    {
+        "title": "Advanced Algorithms",
+        "code": "CS303",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 8.0
+    },
+    {
+        "title": "Deep Learning",
+        "code": "CS403",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 8.0
+    },
+    {
+        "title": "Natural Language Processing",
+        "code": "CS503",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 8.0
+    },
+    {
+        "title": "Computer Architecture",
+        "code": "CS603",
+        "tag": "elective",
+        "semester": "fall",
+        "credits": 8.0
+    },
+    {
+        "title": "Data Warehousing",
+        "code": "CS703",
+        "tag": "elective",
+        "semester": "fall",
+        "credits": 8.0
+    },
+    {
+        "title": "Robotics",
+        "code": "CS803",
+        "tag": "elective",
+        "semester": "fall",
+        "credits": 8.0
+    },
+    {
+        "title": "Distributed Systems",
+        "code": "CS903",
+        "tag": "elective",
+        "semester": "fall",
+        "credits": 8.0
+    },
+    {
+        "title": "Computer Ethics",
+        "code": "CS104",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Computer Vision",
+        "code": "CS204",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Blockchain Technology",
+        "code": "CS304",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Internet of Things",
+        "code": "CS404",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Game Development",
+        "code": "CS504",
+        "tag": "elective",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Quantum Computing",
+        "code": "CS604",
+        "tag": "elective",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Bioinformatics",
+        "code": "CS704",
+        "tag": "elective",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Computational Biology",
+        "code": "CS804",
+        "tag": "elective",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Cryptography",
+        "code": "CS904",
+        "tag": "elective",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Mechanical Engineering Fundamentals",
+        "code": "ME101",
+        "tag": "minor",
+        "semester": "autumn",
+        "credits": 6.0
+    },
+    {
+        "title": "Thermodynamics",
+        "code": "ME201",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 8.0
+    },
+    {
+        "title": "Fluid Mechanics",
+        "code": "ME301",
+        "tag": "core",
+        "semester": "autumn",
+        "credits": 6.0
+    },
+    {
+        "title": "Mechanics of Materials",
+        "code": "ME401",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Machine Design",
+        "code": "ME501",
+        "tag": "elective",
+        "semester": "autumn",
+        "credits": 6.0
+    },
+    {
+        "title": "Civil Engineering Basics",
+        "code": "CE101",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Structural Analysis",
+        "code": "CE201",
+        "tag": "core",
+        "semester": "autumn",
+        "credits": 8.0
+    },
+    {
+        "title": "Geotechnical Engineering",
+        "code": "CE301",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Transportation Engineering",
+        "code": "CE401",
+        "tag": "elective",
+        "semester": "autumn",
+        "credits": 6.0
+    },
+    {
+        "title": "Environmental Engineering",
+        "code": "CE501",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 8.0
+    },
+    {
+        "title": "Chemical Engineering Principles",
+        "code": "CH101",
+        "tag": "core",
+        "semester": "autumn",
+        "credits": 6.0
+    },
+    {
+        "title": "Mass Transfer",
+        "code": "CH201",
+        "tag": "core",
+        "semester": "fall",
+        "credits": 8.0
+    },
+    {
+        "title": "Reaction Engineering",
+        "code": "CH301",
+        "tag": "core",
+        "semester": "autumn",
+        "credits": 6.0
+    },
+    {
+        "title": "Process Control",
+        "code": "CH401",
+        "tag": "elective",
+        "semester": "fall",
+        "credits": 6.0
+    },
+    {
+        "title": "Polymer Engineering",
+        "code": "CH501",
+        "tag": "core",
+        "semester": "autumn",
+        "credits": 6.0
+    }
+]
