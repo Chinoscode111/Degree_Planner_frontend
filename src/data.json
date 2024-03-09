@@ -1,0 +1,483 @@
+[
+    {
+        "title": "Machine Learning Basics",
+        "code": "CS142",
+        "tag": ["core"],
+        "semester": "spring",
+        "credits": 8.0,
+        "year": [1, 2]
+    },
+    {
+        "title": "AI for Everyone",
+        "code": "CS143",
+        "tag": ["elective"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [3, 4]
+    },
+    {
+        "title": "Data Science and AI",
+        "code": "CS144",
+        "tag": ["core", "minor"],
+        "semester": "spring",
+        "credits": 8.0,
+        "year": [2, 4]
+    },
+    {
+        "title": "Practical Machine Learning",
+        "code": "CS145",
+        "tag": ["core", "elective"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [1, 3]
+    },
+    {
+        "title": "Advanced AI Topics",
+        "code": "CS146",
+        "tag": ["elective"],
+        "semester": "fall",
+        "credits": 8.0,
+        "year": [3]
+    },
+    {
+        "title": "AI Ethics",
+        "code": "CS147",
+        "tag": ["core"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [2, 4]
+    },
+    {
+        "title": "Deep Learning Fundamentals",
+        "code": "CS148",
+        "tag": ["core", "elective"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [2, 3]
+    },
+    {
+        "title": "Introduction to AI Applications",
+        "code": "CS149",
+        "tag": ["minor"],
+        "semester": "fall",
+        "credits": 8.0,
+        "year": [1, 4]
+    },
+    {
+        "title": "AI in Healthcare",
+        "code": "CS150",
+        "tag": ["core", "minor"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [3, 4]
+    },
+    {
+        "title": "Machine Learning Techniques",
+        "code": "CS151",
+        "tag": ["core", "elective", "minor"],
+        "semester": "fall",
+        "credits": 8.0,
+        "year": [1, 2]
+    },
+    {
+        "title": "Introduction to Aerospace Engineering",
+        "code": "AE101",
+        "tag": ["core", "elective"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [1, 2]
+    },
+    {
+        "title": "Aerodynamics Fundamentals",
+        "code": "AE102",
+        "tag": ["core"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [2, 3]
+    },
+    {
+        "title": "Flight Mechanics",
+        "code": "AE103",
+        "tag": ["core"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [3]
+    },
+    {
+        "title": "Aircraft Design",
+        "code": "AE104",
+        "tag": ["core"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [4]
+    },
+    {
+        "title": "Spacecraft Systems",
+        "code": "AE105",
+        "tag": ["elective"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [3, 4]
+    },
+    {
+        "title": "Propulsion Systems",
+        "code": "AE106",
+        "tag": ["core"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [2]
+    },
+    {
+        "title": "Satellite Communication",
+        "code": "AE107",
+        "tag": ["elective"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [4]
+    },
+    {
+        "title": "Avionics Engineering",
+        "code": "AE108",
+        "tag": ["core", "elective"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [3, 4]
+    },
+    {
+        "title": "Introduction to Aerospace Materials",
+        "code": "AE109",
+        "tag": ["core"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [2, 3]
+    },
+    {
+        "title": "Space Mission Analysis and Design",
+        "code": "AE110",
+        "tag": ["core"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [4]
+    },
+    {
+        "title": "Calculus and Analytical Geometry",
+        "code": "MA101",
+        "tag": ["core"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [1, 2]
+    },
+    {
+        "title": "Linear Algebra",
+        "code": "MA102",
+        "tag": ["core"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [1, 2]
+    },
+    {
+        "title": "Probability and Statistics",
+        "code": "MA103",
+        "tag": ["core"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [2, 3]
+    },
+    {
+        "title": "Differential Equations",
+        "code": "MA104",
+        "tag": ["core"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [2, 3]
+    },
+    {
+        "title": "Numerical Methods",
+        "code": "MA105",
+        "tag": ["core"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [3, 4]
+    },
+    {
+        "title": "Discrete Mathematics",
+        "code": "MA106",
+        "tag": ["core"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [3, 4]
+    },
+    {
+        "title": "Optimization Techniques",
+        "code": "MA107",
+        "tag": ["core"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [3, 4]
+    },
+    {
+        "title": "Complex Analysis",
+        "code": "MA108",
+        "tag": ["core"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [3, 4]
+    },
+    {
+        "title": "Mathematical Modeling",
+        "code": "MA109",
+        "tag": ["core"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [3, 4]
+    },
+    {
+        "title": "Graph Theory",
+        "code": "MA110",
+        "tag": ["core"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [3, 4]
+    },
+    {
+        "title": "Introduction to Environmental Science",
+        "code": "ES101",
+        "tag": ["core", "elective"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [1, 2, 3, 4]
+    },
+    {
+        "title": "Ecology Fundamentals",
+        "code": "ES102",
+        "tag": ["core", "minor"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [1, 2, 3, 4]
+    },
+    {
+        "title": "Environmental Chemistry",
+        "code": "ES103",
+        "tag": ["core"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [2, 3]
+    },
+    {
+        "title": "Climate Change Science",
+        "code": "ES104",
+        "tag": ["core", "elective"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [2, 3, 4]
+    },
+    {
+        "title": "Sustainable Development",
+        "code": "ES105",
+        "tag": ["core"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [3, 4]
+    },
+    {
+        "title": "Environmental Policy and Law",
+        "code": "ES106",
+        "tag": ["core", "elective"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [1, 3, 4]
+    },
+    {
+        "title": "Water Resources Management",
+        "code": "ES107",
+        "tag": ["elective"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [2, 3, 4]
+    },
+    {
+        "title": "Air Pollution Control",
+        "code": "ES108",
+        "tag": ["core"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [1, 2, 4]
+    },
+    {
+        "title": "Environmental Impact Assessment",
+        "code": "ES109",
+        "tag": ["core"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [2, 3, 4]
+    },
+    {
+        "title": "Renewable Energy Technologies",
+        "code": "ES110",
+        "tag": ["core", "elective", "minor"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [1, 2, 4]
+    },
+    {
+        "title": "Engineering Mechanics",
+        "code": "ME101",
+        "tag": ["core", "elective"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [1, 2]
+    },
+    {
+        "title": "Thermodynamics",
+        "code": "ME102",
+        "tag": ["core", "minor"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [1, 2]
+    },
+    {
+        "title": "Fluid Mechanics",
+        "code": "ME103",
+        "tag": ["core"],
+        "semester": "fall",
+        "credits": 8.0,
+        "year": [1, 2]
+    },
+    {
+        "title": "Mechanical Design",
+        "code": "ME104",
+        "tag": ["core", "elective"],
+        "semester": "spring",
+        "credits": 8.0,
+        "year": [1, 2]
+    },
+    {
+        "title": "Heat Transfer",
+        "code": "ME105",
+        "tag": ["core"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year":[ 3, 4]
+    },
+    {
+        "title": "Control Systems",
+        "code": "ME106",
+        "tag": ["core"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [1, 2]
+    },
+    {
+        "title": "Machine Dynamics",
+        "code": "ME107",
+        "tag": ["core", "elective"],
+        "semester": "fall",
+        "credits": 8.0,
+        "year": [1, 2]
+    },
+    {
+        "title": "Manufacturing Processes",
+        "code": "ME108",
+        "tag": ["elective"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [1, 2]
+    },
+    {
+        "title": "Materials Science",
+        "code": "ME109",
+        "tag": ["core"],
+        "semester": "fall",
+        "credits": 8.0,
+        "year": [1, 2]
+    },
+    {
+        "title": "Engineering Drawing",
+        "code": "ME110",
+        "tag": ["core", "elective", "minor"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [ 3, 4]
+    },
+    {
+        "title": "Robotics",
+        "code": "ME111",
+        "tag": ["core"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [ 2, 3]
+    },
+    {
+        "title": "Finite Element Analysis",
+        "code": "ME112",
+        "tag": ["core", "elective"],
+        "semester": "spring",
+        "credits": 8.0,
+        "year": [ 2, 4]
+    },
+    {
+        "title": "Aeroelasticity",
+        "code": "ME113",
+        "tag": ["core"],
+        "semester": "fall",
+        "credits": 8.0,
+        "year": [ 2, 3, 4]
+    },
+    {
+        "title": "Energy Conversion Systems",
+        "code": "ME114",
+        "tag": ["core", "elective"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [2, 3, 4]
+    },
+    {
+        "title": "Vehicle Dynamics",
+        "code": "ME115",
+        "tag": ["core"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [ 2, 3]
+    },
+    {
+        "title": "Renewable Energy Technologies",
+        "code": "ME116",
+        "tag": ["core", "elective", "minor"],
+        "semester": "spring",
+        "credits": 8.0,
+        "year": [ 2, 3]
+    },
+    {
+        "title": "Industrial Automation",
+        "code": "ME117",
+        "tag": ["elective"],
+        "semester": "fall",
+        "credits": 6.0,
+        "year": [ 2, 3]
+    },
+    {
+        "title": "Advanced Mechanics of Materials",
+        "code": "ME118",
+        "tag": ["core"],
+        "semester": "spring",
+        "credits": 8.0,
+        "year": [ 4]
+    },
+    {
+        "title": "Computational Fluid Dynamics",
+        "code": "ME119",
+        "tag": ["core", "elective"],
+        "semester": "fall",
+        "credits": 8.0,
+        "year": [ 3, 4]
+    },
+    {
+        "title": "Biomechanics",
+        "code": "ME120",
+        "tag": ["core"],
+        "semester": "spring",
+        "credits": 6.0,
+        "year": [ 3, 4]
+    }
+    
+]
