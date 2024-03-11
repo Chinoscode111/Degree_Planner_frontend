@@ -1,5 +1,6 @@
 import React from "react"
 import data from "../../data.json"
+import CreateLabel from "./CreateLabel"
 
 const LoadCourses = () =>{
 
@@ -8,17 +9,17 @@ const LoadCourses = () =>{
     const [coursesList, setCoursesList] = React.useState(courses.map(course => (
         {...course, toggle: true}
     )))
-    console.log("courses list", coursesList)
+    console.log("courses list", coursesList);
+
 
     function createLabel(dict){
         console.log("creating label")
         return(
-            <div className="load-courses--label">
-                <p>{dict.title}</p>
-                <p>{dict.code}</p>
-            </div>
+            <CreateLabel course={dict}/>
         )
     }
+
+    //creating drag and drop functionality
 
 
     const [displayCourses, setDisplayCourses] = React.useState(coursesList.map(course => (
@@ -29,6 +30,7 @@ const LoadCourses = () =>{
 
     function handleChange(event) {
         const searchText = event.target.value.toLowerCase();
+        console.log("searchText", searchText);
     
         const updatedCoursesList = coursesList.map(course => ({
                 ...course,
