@@ -58,12 +58,14 @@ const LoadCourses = () =>{
     function handleCheckSemester(event){
         const {name, checked} = event.target
 
+        setCheckSemester(prevCheckSemester => (
+            {...prevCheckSemester,
+            [name]: !prevCheckSemester[name]}
+        ))
+
         if(checked){
 
-            setCheckSemester(prevCheckSemester => (
-                {...prevCheckSemester,
-                [name]: !prevCheckSemester[name]}
-            ))
+            
             
             const updatedCoursesList = coursesList.map(course => ({
                 ...course,
@@ -77,10 +79,6 @@ const LoadCourses = () =>{
         }
 
         else{
-            setCheckSemester(prevCheckSemester => ({
-                ...prevCheckSemester,
-                [name]: false
-            }))
 
             setDisplayCourses(coursesList.map(course =>
                 createLabel(course)
@@ -104,26 +102,112 @@ const LoadCourses = () =>{
     
     function handleCheckYear(event){
         const {name, checked} = event.target
+        console.log(checked)
+
+        setCheckYear(prevCheckYear => (
+            {...prevCheckYear,
+            [name]: checked
+            }
+        ))
+    }
+
+    const [checkTag, setCheckTag] = React.useState({
+        "core": false,
+        "elective": false,
+        "minor": false,
+    })
+
+    
+    function handleCheckTag(event){
+        const {name, checked} = event.target
+        console.log(checked)
+
+        setCheckTag(prevCheckTag => (
+            {...prevCheckTag,
+            [name]: checked
+            }
+        ))
+    }
 
 
-        // for (var i = 1; i<=4; i++){
-        //     const year = i.toString()
-        //     const name = year
-        //     const checked = checkYear.year
-        //     console.log("checked", checked)
 
-        // }
+
+
+
+    React.useEffect( () => {
+
+        var newCourseList = coursesList
+
+        console.log(checkTag)
+        for (const tag in checkTag){
+            const name = tag
+            const checked = checkTag[tag]
+            console.log("checked", checked)
+
+
+            const updatedCoursesList = newCourseList.map(course => ({
+                ...course,
+                toggle: checked ? course.tag.includes(name) : true
+            }))
+            newCourseList = updatedCoursesList.filter(course => course.toggle)
+        }
+
+
+
+
+
+        console.log(checkYear)
+        for (var i = 1; i<=4; i++){
+            const year = i.toString()
+            const name = year
+            const checked = checkYear[year]
+            console.log("checked", checked)
+
+
+            const updatedCoursesList = newCourseList.map(course => ({
+                ...course,
+                toggle: checked ? course.year.includes(parseInt(name)) : true
+            }))
+            newCourseList = updatedCoursesList.filter(course => course.toggle)
+
+        }
+        setDisplayCourses(newCourseList.map(course => (
+            createLabel(course)
+        )))
+
+    }, [checkTag, checkYear])
+
+
+
+
+
+
+
+
+
+    const [checkCredits, setCheckCredits] = React.useState({
+        "3": false,
+        "6": false,
+        "8": false
+
+    })
+
+    
+    function handleCheckCredits(event){
+        const {name, checked} = event.target
+
+        setCheckCredits(prevCheckCredits => (
+            {...prevCheckCredits,
+            [name]: !prevCheckCredits[name]}
+        ))
 
         if(checked){
 
-            setCheckYear(prevCheckYear => (
-                {...prevCheckYear,
-                [name]: !prevCheckYear[name]}
-            ))
+            
             
             const updatedCoursesList = coursesList.map(course => ({
                 ...course,
-                toggle: checked ? course.year.includes(parseInt(name)) : true
+                toggle: course.credits == name 
             }))
             const filteredCourses = updatedCoursesList.filter(course => course.toggle)
             setDisplayCourses(filteredCourses.map(course =>
@@ -133,16 +217,14 @@ const LoadCourses = () =>{
         }
 
         else{
-            setCheckYear(prevCheckYear => ({
-                ...prevCheckYear,
-                [name]: false
-            }))
 
             setDisplayCourses(coursesList.map(course =>
                 createLabel(course)
             ))
         }   
     }
+
+    
 
     return (
         <div className="load-courses-cont">
@@ -152,6 +234,9 @@ const LoadCourses = () =>{
                 placeholder="Enter course"
                 onChange={handleChange}
             ></input>
+
+
+
             <p>spring</p>
             <input
                 name="spring"
@@ -198,6 +283,57 @@ const LoadCourses = () =>{
                 checked={checkYear["4"]}   
                 onChange={handleCheckYear}
             ></input>
+
+
+
+
+
+            <p>core</p>
+            <input
+                name="core"
+                type="checkbox" 
+                checked={checkTag.core}   
+                onChange={handleCheckTag}
+            ></input>
+            <p>elective</p>
+            <input
+                name="elective"
+                type="checkbox" 
+                checked={checkTag.elective}   
+                onChange={handleCheckTag}
+            ></input>
+            <p>minor</p>
+            <input
+                name="minor"
+                type="checkbox" 
+                checked={checkTag.minor}   
+                onChange={handleCheckTag}
+            ></input>
+
+
+            <p>3</p>
+            <input
+                name="3"
+                type="checkbox" 
+                checked={checkCredits["3"]}   
+                onChange={handleCheckCredits}
+            ></input>
+            <p>6</p>
+            <input
+                name="6"
+                type="checkbox" 
+                checked={checkCredits["6"]}   
+                onChange={handleCheckCredits}
+            ></input>
+            <p>8</p>
+            <input
+                name="8"
+                type="checkbox" 
+                checked={checkCredits["8"]}   
+                onChange={handleCheckCredits}
+            ></input>
+
+            
 
             {displayCourses}
         </div>
