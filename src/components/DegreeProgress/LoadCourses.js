@@ -51,41 +51,15 @@ const LoadCourses = () =>{
 
 
 
-    const [checkSemester, setCheckSemester] = React.useState({
-        autumn: false,
-        spring: false
-    })
+
 
     
-    function handleCheckSemester(event){
-        const {name, checked} = event.target
-
-        setCheckSemester(prevCheckSemester => (
-            {...prevCheckSemester,
-            [name]: !prevCheckSemester[name]}
-        ))
-
-        if(checked){
-
-            
-            
-            const updatedCoursesList = coursesList.map(course => ({
-                ...course,
-                toggle: course.semester == name 
-            }))
-            const filteredCourses = updatedCoursesList.filter(course => course.toggle)
-            setDisplayCourses(filteredCourses.map(course =>
-                createLabel(course)
-            ))
-
-        }
-
-        else{
-
-            setDisplayCourses(coursesList.map(course =>
-                createLabel(course)
-            ))
-        }   
+    function handleCheckSemester(event) {
+        const { value } = event.target;
+        const filteredCourses = courses.filter(
+            course => course.semester == value
+        )
+        setDisplayCourses(filteredCourses.map(course => createLabel(course)));
     }
 
 
@@ -187,43 +161,12 @@ const LoadCourses = () =>{
 
 
 
-    const [checkCredits, setCheckCredits] = React.useState({
-        "3": false,
-        "6": false,
-        "8": false
-
-    })
-
-    
-    function handleCheckCredits(event){
-        const {name, checked} = event.target
-
-        setCheckCredits(prevCheckCredits => (
-            {...prevCheckCredits,
-            [name]: !prevCheckCredits[name]}
-        ))
-
-        if(checked){
-
-            
-            
-            const updatedCoursesList = coursesList.map(course => ({
-                ...course,
-                toggle: course.credits == name 
-            }))
-            const filteredCourses = updatedCoursesList.filter(course => course.toggle)
-            setDisplayCourses(filteredCourses.map(course =>
-                createLabel(course)
-            ))
-
-        }
-
-        else{
-
-            setDisplayCourses(coursesList.map(course =>
-                createLabel(course)
-            ))
-        }   
+    function handleCheckCredits(event) {
+        const { value } = event.target;
+        const filteredCourses = courses.filter(
+            course => course.credits == value
+        )
+        setDisplayCourses(filteredCourses.map(course => createLabel(course)));
     }
 
     
@@ -241,16 +184,16 @@ const LoadCourses = () =>{
 
             <p>spring</p>
             <input
-                name="spring"
-                type="checkbox" 
-                checked={checkSemester.spring}   
+                name="semester"
+                type="radio" 
+                value="spring" 
                 onChange={handleCheckSemester}
             ></input>
             <p>autumn</p>
             <input
-                name="autumn"
-                type="checkbox" 
-                checked={checkSemester.autumn}   
+                name="semester"
+                type="radio" 
+                value="autumn"   
                 onChange={handleCheckSemester}
             ></input>
 
@@ -315,23 +258,23 @@ const LoadCourses = () =>{
 
             <p>3</p>
             <input
-                name="3"
-                type="checkbox" 
-                checked={checkCredits["3"]}   
+                name="credits"
+                type="radio" 
+                value="3"  
                 onChange={handleCheckCredits}
             ></input>
             <p>6</p>
             <input
-                name="6"
-                type="checkbox" 
-                checked={checkCredits["6"]}   
+                name="credits"
+                type="radio" 
+                value="6"
                 onChange={handleCheckCredits}
             ></input>
             <p>8</p>
             <input
-                name="8"
-                type="checkbox" 
-                checked={checkCredits["8"]}   
+                name="credits"
+                type="radio" 
+                value="8" 
                 onChange={handleCheckCredits}
             ></input>
 
