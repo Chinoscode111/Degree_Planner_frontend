@@ -210,108 +210,145 @@ const LoadCourses = () =>{
             ></input>
 
 
-<           button onClick={clearCheckSemester}>Clear credits</button>
-            <p>spring</p>
-            <input
-                name="semester"
-                type="radio" 
-                value="spring" 
-                checked={selectedSemester == "spring"}
-                onChange={handleCheckSemester}
-            ></input>
-            <p>autumn</p>
-            <input
-                name="semester"
-                type="radio" 
-                value="autumn"   
-                checked={selectedSemester == "autumn"}
-                onChange={handleCheckSemester}
-            ></input>
-
-
-
-            <button onClick={clearCheckYear}>Clear year</button>
-            <p>1</p>
-            <input
-                name="1"
-                type="checkbox" 
-                checked={checkYear["1"]}   
-                onChange={handleCheckYear}
-            ></input>
-            <p>2</p>
-            <input
-                name="2"
-                type="checkbox" 
-                checked={checkYear["2"]}   
-                onChange={handleCheckYear}
-            ></input>
-            <p>3</p>
-            <input
-                name="3"
-                type="checkbox" 
-                checked={checkYear["3"]}   
-                onChange={handleCheckYear}
-            ></input>
-            <p>4</p>
-            <input
-                name="4"
-                type="checkbox" 
-                checked={checkYear["4"]}   
-                onChange={handleCheckYear}
-            ></input>
-
-
-
-
-            <button onClick={clearCheckTag}>Clear tag</button>
-            <p>core</p>
-            <input
-                name="core"
-                type="checkbox" 
-                checked={checkTag.core}   
-                onChange={handleCheckTag}
-            ></input>
-            <p>elective</p>
-            <input
-                name="elective"
-                type="checkbox" 
-                checked={checkTag.elective}   
-                onChange={handleCheckTag}
-            ></input>
-            <p>minor</p>
-            <input
-                name="minor"
-                type="checkbox" 
-                checked={checkTag.minor}   
-                onChange={handleCheckTag}
-            ></input>
-
+            <div className="filter">
+                <div className="filter-title">
+                    <p>Semester</p>
+                    <button onClick={clearCheckSemester}>&#10060;</button>
+                </div>
+                <div className="filter-elements">
+                    <p>spring</p>
+                    <input
+                        name="semester"
+                        type="radio" 
+                        value="spring" 
+                        checked={selectedSemester == "spring"}
+                        onChange={handleCheckSemester}
+                        className="filter-element"
+                    ></input>
+                    <p>autumn</p>
+                    <input
+                        name="semester"
+                        type="radio" 
+                        value="autumn"   
+                        checked={selectedSemester == "autumn"}
+                        onChange={handleCheckSemester}
+                        className="filter-element"
+                    ></input>
+                </div>
+            </div>
             
-            <button onClick={clearCheckCredits}>Clear credits</button>
-            <p>3</p>
-            <input
-                name="credits"
-                type="radio" 
-                value="3"  
-                checked={selectedCredits == "3"}
-                onChange={handleCheckCredits}
-            ></input>
-            <p>6</p>
-            <input
-                name="credits"
-                type="radio" 
-                value="6"
-                checked={selectedCredits == "6"}
-                onChange={handleCheckCredits}
-            ></input>
-            <p>8</p>
-            <input
-                name="credits"
-                type="radio" 
-                value="8" 
-                checked={selectedCredits == "8"}
-                onChange={handleCheckCredits}
-            ></input>
+
+
+            <div className="filter">
+                <div className="filter-title">
+                    <p>Year</p>
+                    <button onClick={clearCheckYear}>&#10060;</button>
+                </div>
+                <div className="filter-elements">
+                    <p>1</p>
+                    <input
+                        name="1"
+                        type="checkbox" 
+                        checked={checkYear["1"]}   
+                        onChange={handleCheckYear}
+                        className="filter-element"
+                    ></input>
+                    <p>2</p>
+                    <input
+                        name="2"
+                        type="checkbox" 
+                        checked={checkYear["2"]}   
+                        onChange={handleCheckYear}
+                        className="filter-element"
+                    ></input>
+                    <p>3</p>
+                    <input
+                        name="3"
+                        type="checkbox" 
+                        checked={checkYear["3"]}   
+                        onChange={handleCheckYear}
+                        className="filter-element"
+                    ></input>
+                    <p>4</p>
+                    <input
+                        name="4"
+                        type="checkbox" 
+                        checked={checkYear["4"]}   
+                        onChange={handleCheckYear}
+                        className="filter-element"
+                    ></input>
+                </div>
+            </div>
+
+
+            <div className="filter">
+                <div className="filter-title">
+                    <p>Tag</p>
+                    <button onClick={clearCheckTag}>&#10060;</button>
+                </div>
+                <div className="filter-elements">
+                    <p>core</p>
+                    <input
+                        name="core"
+                        type="checkbox" 
+                        checked={checkTag.core}   
+                        onChange={handleCheckTag}
+                        className="filter-element"
+                    ></input>
+                    <p>elective</p>
+                    <input
+                        name="elective"
+                        type="checkbox" 
+                        checked={checkTag.elective}   
+                        onChange={handleCheckTag}
+                        className="filter-element"
+                    ></input>
+                    <p>minor</p>
+                    <input
+                        name="minor"
+                        type="checkbox" 
+                        checked={checkTag.minor}   
+                        onChange={handleCheckTag}
+                        className="filter-element"
+                    ></input>
+                    </div>
+            </div>
+
+            <div className="filter">
+                <div className="filter-title">
+                    <p>Credits</p>
+                    <button onClick={clearCheckCredits}>&#10060;</button>
+                </div>
+                <div className="filter-elements">
+                    <p>3</p>
+                    <input
+                        name="credits"
+                        type="radio" 
+                        value="3"  
+                        checked={selectedCredits == "3"}
+                        onChange={handleCheckCredits}
+                        className="filter-element"
+                    ></input>
+                    <p>6</p>
+                    <input
+                        name="credits"
+                        type="radio" 
+                        value="6"
+                        checked={selectedCredits == "6"}
+                        onChange={handleCheckCredits}
+                        className="filter-element"
+                    ></input>
+                    <p>8</p>
+                    <input
+                        name="credits"
+                        type="radio" 
+                        value="8" 
+                        checked={selectedCredits == "8"}
+                        onChange={handleCheckCredits}
+                        className="filter-element"
+                    ></input>
+                </div>
+            </div>
 
             
 
