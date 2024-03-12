@@ -19,7 +19,6 @@ const LoadCourses = () =>{
         )
     }
 
-    //creating drag and drop functionality
 
 
     const [displayCourses, setDisplayCourses] = React.useState(coursesList.map(course => (
@@ -52,16 +51,21 @@ const LoadCourses = () =>{
 
 
 
-
+    const [selectedSemester, setSelctedSemester] = React.useState(null)
     
     function handleCheckSemester(event) {
         const { value } = event.target;
+        setSelctedSemester(value)
         const filteredCourses = courses.filter(
             course => course.semester == value
         )
         setDisplayCourses(filteredCourses.map(course => createLabel(course)));
     }
 
+    function clearCheckSemester(){
+        setSelctedSemester(null)
+        setDisplayCourses(courses.map(course => createLabel(course)));
+    }
 
     
 
@@ -87,6 +91,15 @@ const LoadCourses = () =>{
         ))
     }
 
+    function clearCheckYear(){
+        setCheckYear({
+            "1": false,
+            "2": false,
+            "3": false,
+            "4": false
+        })
+    }
+
     const [checkTag, setCheckTag] = React.useState({
         "core": false,
         "elective": false,
@@ -103,6 +116,14 @@ const LoadCourses = () =>{
             [name]: checked
             }
         ))
+    }
+
+    function clearCheckTag(){
+        setCheckTag({
+            "core": false,
+            "elective": false,
+            "minor": false,
+        })
     }
 
 
@@ -159,14 +180,22 @@ const LoadCourses = () =>{
 
 
 
-
+    const [selectedCredits, setSelectedCredits] = React.useState(null);
 
     function handleCheckCredits(event) {
         const { value } = event.target;
+        setSelectedCredits(value)
         const filteredCourses = courses.filter(
             course => course.credits == value
         )
         setDisplayCourses(filteredCourses.map(course => createLabel(course)));
+    }
+
+
+
+    function clearCheckCredits(){
+        setSelectedCredits(null)
+        setDisplayCourses(courses.map(course => createLabel(course)))
     }
 
     
@@ -181,12 +210,13 @@ const LoadCourses = () =>{
             ></input>
 
 
-
+<           button onClick={clearCheckSemester}>Clear credits</button>
             <p>spring</p>
             <input
                 name="semester"
                 type="radio" 
                 value="spring" 
+                checked={selectedSemester == "spring"}
                 onChange={handleCheckSemester}
             ></input>
             <p>autumn</p>
@@ -194,12 +224,13 @@ const LoadCourses = () =>{
                 name="semester"
                 type="radio" 
                 value="autumn"   
+                checked={selectedSemester == "autumn"}
                 onChange={handleCheckSemester}
             ></input>
 
 
 
-
+            <button onClick={clearCheckYear}>Clear year</button>
             <p>1</p>
             <input
                 name="1"
@@ -232,7 +263,7 @@ const LoadCourses = () =>{
 
 
 
-
+            <button onClick={clearCheckTag}>Clear tag</button>
             <p>core</p>
             <input
                 name="core"
@@ -255,12 +286,14 @@ const LoadCourses = () =>{
                 onChange={handleCheckTag}
             ></input>
 
-
+            
+            <button onClick={clearCheckCredits}>Clear credits</button>
             <p>3</p>
             <input
                 name="credits"
                 type="radio" 
                 value="3"  
+                checked={selectedCredits == "3"}
                 onChange={handleCheckCredits}
             ></input>
             <p>6</p>
@@ -268,6 +301,7 @@ const LoadCourses = () =>{
                 name="credits"
                 type="radio" 
                 value="6"
+                checked={selectedCredits == "6"}
                 onChange={handleCheckCredits}
             ></input>
             <p>8</p>
@@ -275,6 +309,7 @@ const LoadCourses = () =>{
                 name="credits"
                 type="radio" 
                 value="8" 
+                checked={selectedCredits == "8"}
                 onChange={handleCheckCredits}
             ></input>
 
