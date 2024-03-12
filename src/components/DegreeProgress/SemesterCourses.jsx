@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import{useDrop, useDrag} from 'react-dnd';
 import { ItemTypes } from './CreateLabel.jsx';
 import { Context } from '../../App.js';
@@ -50,9 +50,11 @@ const SemesterCourses = () => {
 
                 if(flag === 0) {
                     setFallSem([...fallSem, item.course]);
-                    // setCourseData([[...courseData.slice(0, courseData.indexOf(item.course)), ...courseData.slice(courseData.indexOf(item.course) + 1)]]);
+
+                    //agar courseData ke state set ho chuki hai toh again state change mai puranai element kaise aa sakte hai??
+                    
+                    // setCourseData(courseData.filter(course => course.code !== item.course.code));
                 }
-// console.log(courseData);
 
             },
             collect: (monitor) => ({
@@ -81,7 +83,12 @@ const SemesterCourses = () => {
                     flag = 1;
                 }
 
-                if(flag === 0) {setSpringSem([...springSem, item.course]);}
+                if(flag === 0) {
+                    setSpringSem([...springSem, item.course]);
+
+                    // setCourseData(courseData.filter(course => course.code !== item.course.code));
+                
+                }
 
 
 
@@ -92,6 +99,19 @@ const SemesterCourses = () => {
         }),
         [springSem] // Add fallSem as a dependency
     );
+
+    //removes all the elements of spring and fall semester from the courseData every time the spring and fall semester state changes
+
+    useEffect( ()=>{
+        springSem.map(course =>{
+            setCourseData(courseData.filter(courseD => courseD.code !== course.code));
+         })
+         fallSem.map(course =>{
+            setCourseData(courseData.filter(courseD => courseD.code !== course.code));
+         })
+    } , [fallSem, springSem])
+
+    console.log("courseData",courseData);
 
 //to drop course back to the list
    
