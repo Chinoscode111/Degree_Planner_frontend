@@ -1,29 +1,22 @@
-import React from "react"
-import data from "../../data.json"
-import CreateLabel from "./CreateLabel"
+import React, { useContext } from "react"
+import CreateLabel, { ItemTypes } from "./CreateLabel"
+import { useDrop } from "react-dnd"
+import { Context } from "../../App"
+import { useEffect } from "react"
 
 const LoadCourses = () =>{
 
-    const courses = data
+    const {courseData, setCourseData} = useContext(Context);
+
+    const courses = courseData;
+    courses.sort((a, b) => a.code.localeCompare(b.code));
+    console.log("coursesData", courseData);
+
 
     const [coursesList, setCoursesList] = React.useState(courses.map(course => (
         {...course, toggle: true}
     )))
-    console.log("courses list", coursesList);
-
-
-    function createLabel(dict){
-        console.log("creating label")
-        return(
-            <CreateLabel course={dict}/>
-        )
-    }
-
-
-
-    const [displayCourses, setDisplayCourses] = React.useState(coursesList.map(course => (
-        createLabel(course)
-    )))
+    // console.log("courses list", coursesList);
 
 
 
@@ -40,9 +33,7 @@ const LoadCourses = () =>{
         setCoursesList(updatedCoursesList)
     
         const filteredCourses = updatedCoursesList.filter(course => course.toggle);
-        setDisplayCourses(filteredCourses.map(course =>
-            createLabel(course)
-        ))
+        setCourseData(filteredCourses);
     }
 
 
@@ -57,14 +48,15 @@ const LoadCourses = () =>{
         const { value } = event.target;
         setSelctedSemester(value)
         const filteredCourses = courses.filter(
-            course => course.semester == value
+            course => course.semester === value
         )
-        setDisplayCourses(filteredCourses.map(course => createLabel(course)));
+        setCourseData(filteredCourses);
+        console.log("filteredCourses", filteredCourses);
     }
 
     function clearCheckSemester(){
         setSelctedSemester(null)
-        setDisplayCourses(courses.map(course => createLabel(course)));
+        setCourseData(courses);
     }
 
     
@@ -135,11 +127,11 @@ const LoadCourses = () =>{
 
         var newCourseList = coursesList
 
-        console.log(checkTag)
+        // console.log(checkTag)
         for (const tag in checkTag){
             const name = tag
             const checked = checkTag[tag]
-            console.log("checked", checked)
+            // console.log("checked", checked)
 
 
             const updatedCoursesList = newCourseList.map(course => ({
@@ -153,12 +145,12 @@ const LoadCourses = () =>{
 
 
 
-        console.log(checkYear)
+        // console.log(checkYear)
         for (var i = 1; i<=4; i++){
             const year = i.toString()
             const name = year
             const checked = checkYear[year]
-            console.log("checked", checked)
+            // console.log("checked", checked)
 
 
             const updatedCoursesList = newCourseList.map(course => ({
@@ -168,9 +160,7 @@ const LoadCourses = () =>{
             newCourseList = updatedCoursesList.filter(course => course.toggle)
 
         }
-        setDisplayCourses(newCourseList.map(course => (
-            createLabel(course)
-        )))
+        setCourseData(newCourseList)
 
     }, [checkTag, checkYear])
 
@@ -186,17 +176,33 @@ const LoadCourses = () =>{
         const { value } = event.target;
         setSelectedCredits(value)
         const filteredCourses = courses.filter(
-            course => course.credits == value
+            course => course.credits === value
         )
-        setDisplayCourses(filteredCourses.map(course => createLabel(course)));
+        setCourseData(filteredCourses);
     }
 
 
 
     function clearCheckCredits(){
         setSelectedCredits(null)
-        setDisplayCourses(courses.map(course => createLabel(course)))
+        setCourseData(courses)
     }
+
+    const [, dropCourse] = useDrop(
+        () => ({
+            accept: ItemTypes.COURSES,
+            drop: (item, monitor) => {
+              console.log("course dropped");
+
+
+
+            },
+            collect: (monitor) => ({
+                isOver: !!monitor.isOver(),
+            }),
+        }),
+         // Add fallSem as a dependency
+    );
 
     
 
@@ -221,7 +227,7 @@ const LoadCourses = () =>{
                         name="semester"
                         type="radio" 
                         value="spring" 
-                        checked={selectedSemester == "spring"}
+                        checked={selectedSemester === "spring"}
                         onChange={handleCheckSemester}
                         className="filter-element"
                     ></input>
@@ -230,7 +236,7 @@ const LoadCourses = () =>{
                         name="semester"
                         type="radio" 
                         value="autumn"   
-                        checked={selectedSemester == "autumn"}
+                        checked={selectedSemester === "autumn"}
                         onChange={handleCheckSemester}
                         className="filter-element"
                     ></input>
@@ -325,7 +331,7 @@ const LoadCourses = () =>{
                         name="credits"
                         type="radio" 
                         value="3"  
-                        checked={selectedCredits == "3"}
+                        checked={selectedCredits === "3"}
                         onChange={handleCheckCredits}
                         className="filter-element"
                     ></input>
@@ -334,7 +340,7 @@ const LoadCourses = () =>{
                         name="credits"
                         type="radio" 
                         value="6"
-                        checked={selectedCredits == "6"}
+                        checked={selectedCredits === "6"}
                         onChange={handleCheckCredits}
                         className="filter-element"
                     ></input>
@@ -343,16 +349,23 @@ const LoadCourses = () =>{
                         name="credits"
                         type="radio" 
                         value="8" 
-                        checked={selectedCredits == "8"}
+                        checked={selectedCredits === "8"}
                         onChange={handleCheckCredits}
                         className="filter-element"
                     ></input>
                 </div>
             </div>
 
-            
+            <div className="course-cont" ref={dropCourse}>
 
-            {displayCourses}
+            {
+                //cant use useEffect because it cant return anything other than a funcion
+                
+                courseData.map(course => (
+                    <CreateLabel course={course} key={course.code} />
+                ))
+            }
+            </div>
         </div>
         
     )
