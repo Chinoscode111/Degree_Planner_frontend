@@ -142,7 +142,7 @@ const SemesterCourses = () => {
             <h3>Spring Semester</h3>
             {springSem.map(course => (
                 
-                <div className="course" ref={dragSpringSem}  key={course.code}>
+                <div className="course" ref={dragSpringSem} style={{border:"1px solid black"}}  key={course.code}>
                     <h3>{course.title}</h3>
                     <p>{course.code}</p>
                 </div>
