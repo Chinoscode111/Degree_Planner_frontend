@@ -42,22 +42,7 @@ const LoadCourses = () =>{
 
 
 
-    const [selectedSemester, setSelctedSemester] = React.useState(null)
     
-    function handleCheckSemester(event) {
-        const { value } = event.target;
-        setSelctedSemester(value)
-        const filteredCourses = courses.filter(
-            course => course.semester === value
-        )
-        setCourseData(filteredCourses);
-        console.log("filteredCourses", filteredCourses);
-    }
-
-    function clearCheckSemester(){
-        setSelctedSemester(null)
-        setCourseData(courses);
-    }
 
     
 
@@ -123,6 +108,108 @@ const LoadCourses = () =>{
 
 
 
+
+
+
+
+
+
+
+
+    const [checkSemester, setCheckSemester] = React.useState({
+        "spring": false,
+        "autumn": false
+    })
+    
+    function handleCheckSemester(event) {
+        const { value } = event.target;
+        console.log("value", value)
+
+        if(value == "spring"){
+            setCheckSemester({
+                "spring": true,
+                "autumn": false
+            })
+        }
+        else if(value == "autumn"){
+            setCheckSemester({
+                "spring": false,
+                "autumn": true
+            })
+        }
+    }
+
+    function clearCheckSemester(){
+        setCheckSemester({
+            "spring": false,
+            "autumn": false
+        })
+    }
+
+
+    const [checkCredits, setCheckCredits] = React.useState({
+        "3": false,
+        "6": false,
+        "8": false
+    })
+
+    function handleCheckCredits(event) {
+        const { value } = event.target;
+        
+        if(value == "3"){
+            setCheckCredits({
+                "3": true,
+                "6": false,
+                "8": false
+            })
+        }
+        else if(value == "6"){
+            setCheckCredits({
+                "3": false,
+                "6": true,
+                "8": false
+            })
+        }
+        else if(value == "8"){
+            setCheckCredits({
+                "3": false,
+                "6": false,
+                "8": true
+            })
+        }
+    }
+
+
+
+    function clearCheckCredits(){
+        setCheckCredits({
+                "3": true,
+                "6": false,
+                "8": false
+        })
+    }
+    
+
+    const [, dropCourse] = useDrop(
+        () => ({
+            accept: ItemTypes.COURSES,
+            drop: (item, monitor) => {
+              console.log("course dropped");
+
+
+
+            },
+            collect: (monitor) => ({
+                isOver: !!monitor.isOver(),
+            }),
+        }),
+         // Add fallSem as a dependency
+    );
+
+
+
+
+
     React.useEffect( () => {
 
         var newCourseList = coursesList
@@ -160,50 +247,39 @@ const LoadCourses = () =>{
             newCourseList = updatedCoursesList.filter(course => course.toggle)
 
         }
+
+
+        for (const semester in checkSemester){
+            console.log("semester", semester)
+            const name = semester
+            const checked = checkSemester[semester]
+            console.log("checked", checked)
+
+
+            const updatedCoursesList = newCourseList.map(course => ({
+                ...course,
+                toggle: checked ? course.semester == name : true
+            }))
+            newCourseList = updatedCoursesList.filter(course => course.toggle)
+        }
+
+
+        for (const credits in checkCredits){
+            const name = credits
+            const checked = checkCredits[credits]
+            console.log("checked", checked)
+
+
+            const updatedCoursesList = newCourseList.map(course => ({
+                ...course,
+                toggle: checked ? course.credits == parseFloat(name) : true
+            }))
+            newCourseList = updatedCoursesList.filter(course => course.toggle)
+        }
+
         setCourseData(newCourseList)
 
-    }, [checkTag, checkYear])
-
-
-
-
-
-
-
-    const [selectedCredits, setSelectedCredits] = React.useState(null);
-
-    function handleCheckCredits(event) {
-        const { value } = event.target;
-        setSelectedCredits(value)
-        const filteredCourses = courses.filter(
-            course => course.credits === value
-        )
-        setCourseData(filteredCourses);
-    }
-
-
-
-    function clearCheckCredits(){
-        setSelectedCredits(null)
-        setCourseData(courses)
-    }
-
-    const [, dropCourse] = useDrop(
-        () => ({
-            accept: ItemTypes.COURSES,
-            drop: (item, monitor) => {
-              console.log("course dropped");
-
-
-
-            },
-            collect: (monitor) => ({
-                isOver: !!monitor.isOver(),
-            }),
-        }),
-         // Add fallSem as a dependency
-    );
-
+    }, [checkTag, checkYear, checkSemester, checkCredits])
     
 
     return (
@@ -227,7 +303,7 @@ const LoadCourses = () =>{
                         name="semester"
                         type="radio" 
                         value="spring" 
-                        checked={selectedSemester === "spring"}
+                        checked={checkSemester.spring}
                         onChange={handleCheckSemester}
                         className="filter-element"
                     ></input>
@@ -236,7 +312,7 @@ const LoadCourses = () =>{
                         name="semester"
                         type="radio" 
                         value="autumn"   
-                        checked={selectedSemester === "autumn"}
+                        checked={checkSemester.autumn}
                         onChange={handleCheckSemester}
                         className="filter-element"
                     ></input>
@@ -331,7 +407,7 @@ const LoadCourses = () =>{
                         name="credits"
                         type="radio" 
                         value="3"  
-                        checked={selectedCredits === "3"}
+                        checked={checkCredits["3"]}
                         onChange={handleCheckCredits}
                         className="filter-element"
                     ></input>
@@ -340,7 +416,7 @@ const LoadCourses = () =>{
                         name="credits"
                         type="radio" 
                         value="6"
-                        checked={selectedCredits === "6"}
+                        checked={checkCredits["6"]}
                         onChange={handleCheckCredits}
                         className="filter-element"
                     ></input>
@@ -349,7 +425,7 @@ const LoadCourses = () =>{
                         name="credits"
                         type="radio" 
                         value="8" 
-                        checked={selectedCredits === "8"}
+                        checked={checkCredits["8"]}
                         onChange={handleCheckCredits}
                         className="filter-element"
                     ></input>
