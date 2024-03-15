@@ -18,34 +18,7 @@ const LoadCourses = () =>{
     )))
     // console.log("courses list", coursesList);
 
-
-
-    function handleChange(event) {
-        const searchText = event.target.value.toLowerCase();
-        console.log("searchText", searchText);
-    
-        const updatedCoursesList = coursesList.map(course => ({
-                ...course,
-                toggle: course.title.toLowerCase().includes(searchText) || course.code.toLowerCase().includes(searchText)
-            }))
         
-    
-        setCoursesList(updatedCoursesList)
-    
-        const filteredCourses = updatedCoursesList.filter(course => course.toggle);
-        setCourseData(filteredCourses);
-    }
-
-
-
-
-
-
-
-    
-
-    
-
 
 
 
@@ -183,31 +156,30 @@ const LoadCourses = () =>{
 
     function clearCheckCredits(){
         setCheckCredits({
-                "3": true,
+                "3": false,
                 "6": false,
                 "8": false
         })
     }
     
 
-    const [, dropCourse] = useDrop(
-        () => ({
-            accept: ItemTypes.COURSES,
-            drop: (item, monitor) => {
-              console.log("course dropped");
 
 
-
-            },
-            collect: (monitor) => ({
-                isOver: !!monitor.isOver(),
-            }),
-        }),
-         // Add fallSem as a dependency
-    );
-
-
-
+    function handleChange(event) {
+        const searchText = event.target.value.toLowerCase();
+        console.log("searchText", searchText);
+    
+        const updatedCoursesList = coursesList.map(course => ({
+                ...course,
+                toggle: course.title.toLowerCase().includes(searchText) || course.code.toLowerCase().includes(searchText)
+            }))
+        
+    
+        setCoursesList(updatedCoursesList)
+    
+        const filteredCourses = updatedCoursesList.filter(course => course.toggle);
+        setCourseData(filteredCourses);
+    }
 
 
     React.useEffect( () => {
@@ -280,6 +252,31 @@ const LoadCourses = () =>{
         setCourseData(newCourseList)
 
     }, [checkTag, checkYear, checkSemester, checkCredits])
+
+
+
+
+
+
+
+
+
+    const [, dropCourse] = useDrop(
+        () => ({
+            accept: ItemTypes.COURSES,
+            drop: (item, monitor) => {
+              console.log("course dropped");
+
+
+
+            },
+            collect: (monitor) => ({
+                isOver: !!monitor.isOver(),
+            }),
+        }),
+         // Add fallSem as a dependency
+    );
+
     
 
     return (
