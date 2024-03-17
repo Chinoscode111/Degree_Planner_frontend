@@ -6,7 +6,7 @@ import { useEffect } from "react"
 
 const LoadCourses = () =>{
 
-    const {courseData, setCourseData} = useContext(Context);
+    const {setCourseData, courseData, fallSem, setFallSem, setSpringSem, springSem} = useContext(Context);
 
     const courses = courseData;
     courses.sort((a, b) => a.code.localeCompare(b.code));
@@ -265,7 +265,26 @@ const LoadCourses = () =>{
         () => ({
             accept: ItemTypes.COURSES,
             drop: (item, monitor) => {
-              console.log("course dropped");
+
+                let flag = 0;
+                courseData.map(course => {
+                    if(course.code === item.course.code){
+                        console.log("course already exists");
+                        flag = 1;
+                    }
+                })
+
+                if(flag === 0){
+                    setCourseData([...courseData, item.course]);
+                }
+
+                if(item.course.semester == 'spring'){
+                    setSpringSem(springSem.filter(course => course.code !== item.course.code));
+                }
+
+                if(item.course.semester == 'autumn'){
+                    setFallSem(fallSem.filter(course => course.code !== item.course.code));
+                }
 
 
 
@@ -274,7 +293,7 @@ const LoadCourses = () =>{
                 isOver: !!monitor.isOver(),
             }),
         }),
-         // Add fallSem as a dependency
+        [courseData] // Add fallSem as a dependency
     );
 
     

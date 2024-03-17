@@ -4,7 +4,9 @@ import { Context } from '../../App';
 
 export const ItemTypes = {
     COMPONENT: 'component',
-    COURSES: 'courses'
+    COURSES: 'courses',
+    SPRING: 'spring',
+    AUTUMN: 'autumn'
 }
 
 const CreateLabel = ({course}) => {
