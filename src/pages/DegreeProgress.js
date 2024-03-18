@@ -6,7 +6,7 @@ import "../components/DegreeProgress/degreeprogress.css"
 
 const DegreeProgress = () => {
     return(
-        <div>
+        <div className="cont">
             <Navbar page={1}/>
             <div className="degprog-cont" style={{display:"flex"}} >
 

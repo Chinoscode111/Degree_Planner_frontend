@@ -2,33 +2,13 @@ import React, { useContext, useEffect, useState } from 'react'
 import{useDrop, useDrag} from 'react-dnd';
 import { ItemTypes } from './CreateLabel.jsx';
 import { Context } from '../../App.js';
+import SemLabel from './SemLabel.jsx';
 
 const SemesterCourses = () => {
 
-    const {setCourseData, courseData} = useContext(Context);
+    const {setCourseData, courseData, fallSem, setFallSem, setSpringSem, springSem} = useContext(Context);
 
-    const [springSem, setSpringSem] = React.useState([]);
-
-    const [fallSem, setFallSem] = useState([]);
-
-    const [courseInfo, setCourseInfo] = useState({});
-
-    const [, dragFallSem] = useDrag(() => ({
-        type: ItemTypes.COURSES,
-        item: {courseInfo},
-        collect: (monitor) => ({
-            isDragging: !!monitor.isDragging()
-        })
-    }))
-
-    const [, dragSpringSem] = useDrag(() => ({
-        type: ItemTypes.COURSES,
-        item: {courseInfo},
-        collect: (monitor) => ({
-            isDragging: !!monitor.isDragging() 
-        })
-    }))
-
+   
 
 
     const [, dropFallSem] = useDrop(
@@ -103,9 +83,12 @@ const SemesterCourses = () => {
     //removes all the elements of spring and fall semester from the courseData every time the spring and fall semester state changes
 
     useEffect( ()=>{
+
         springSem.map(course =>{
             setCourseData(courseData.filter(courseD => courseD.code !== course.code));
          })
+
+
          fallSem.map(course =>{
             setCourseData(courseData.filter(courseD => courseD.code !== course.code));
          })
@@ -120,16 +103,12 @@ const SemesterCourses = () => {
 
 
   return (
-    <>
+    <div className="sem-cont">
 
         <div className="autumn-sem-cont" ref={dropFallSem} >
             <h3 className='sem-title'>Autumn Semester</h3>
             {fallSem.map(course => (
-                
-                <div className="course" key={course.code}  ref={dragFallSem} style={{border:"1px solid black"}} >
-                    <h3>{course.title}</h3>
-                    <p>{course.code}</p>
-                </div>
+               <SemLabel course={course} key={course.code}  />
             ))}
         </div>
         
@@ -137,14 +116,11 @@ const SemesterCourses = () => {
             <h3 className='sem-title'>Spring Semester</h3>
             {springSem.map(course => (
                 
-                <div className="course" ref={dragSpringSem} style={{border:"1px solid black"}}  key={course.code}>
-                    <h3>{course.title}</h3>
-                    <p>{course.code}</p>
-                </div>
+                <SemLabel course={course}  key={course.code}/>
             ))}
         </div>
-
-    </>
+    </div>
+    
   )
 }
 
