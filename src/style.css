@@ -97,8 +97,8 @@
     /* background-color: aqua; */
     width: 451px;
     height: 451px;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     position: relative;
 }
 .piechart--center{
@@ -112,6 +112,11 @@
 }
 .piechart--centerperc{
     font-size: 300%;
+}
+
+.piechart--chart{
+    left: 0;
+    top: 0;
 }
 
 .piechart--chart text{
