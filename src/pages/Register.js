@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Home from "./Home";
 import Login from "./Login"
+import "../components/shared/login.css"
+
 import { MdLock } from "react-icons/md";
 import { GoPerson } from "react-icons/go";
 import { PiDotsNineBold } from "react-icons/pi";

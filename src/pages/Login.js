@@ -7,6 +7,7 @@ import Register from "./Register"
 import { MdLock } from "react-icons/md";
 import { GoPerson } from "react-icons/go";
 
+import "../components/shared/login.css"
 
 function LoginForm() {
     // const [PasswordInputType, ToggleIcon] = usePasswordToggle();
