@@ -9,15 +9,18 @@ export const Context = createContext();
 
 const App = () => {
 
-    const [courseData, setCourseData] = useState(data);
     const [springSem, setSpringSem] = useState([]);
 
     const [fallSem, setFallSem] = useState([]);
+    
+    const [coursesList, setCoursesList] = React.useState(data.map(course => (
+        {...course, toggle: true}
+    )))
 
 
     return(
 
-        <Context.Provider value={{courseData, setCourseData, fallSem, setFallSem, setSpringSem, springSem}}>
+        <Context.Provider value={{coursesList, setCoursesList, fallSem, setFallSem, setSpringSem, springSem}}>
         <DndProvider backend={HTML5Backend}>
         <AppRouter />   
         </DndProvider>

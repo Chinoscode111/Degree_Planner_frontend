@@ -2,20 +2,16 @@ import React, { useContext } from "react"
 import CreateLabel, { ItemTypes } from "./CreateLabel"
 import { useDrop } from "react-dnd"
 import { Context } from "../../App"
-import { useEffect } from "react"
+import searchIcon from "./images/search.svg"
 
 const LoadCourses = () =>{
 
-    const {setCourseData, courseData, fallSem, setFallSem, setSpringSem, springSem} = useContext(Context);
+    const {setCoursesList, coursesList, fallSem, setFallSem, springSem, setSpringSem} = useContext(Context);
 
-    const courses = courseData;
-    courses.sort((a, b) => a.code.localeCompare(b.code));
-    console.log("coursesData", courseData);
+    coursesList.sort((a, b) => a.code.localeCompare(b.code));
+    console.log("coursesData", coursesList);
 
 
-    const [coursesList, setCoursesList] = React.useState(courses.map(course => (
-        {...course, toggle: true}
-    )))
     // console.log("courses list", coursesList);
 
         
@@ -98,13 +94,13 @@ const LoadCourses = () =>{
         const { value } = event.target;
         console.log("value", value)
 
-        if(value == "spring"){
+        if(value === "spring"){
             setCheckSemester({
                 "spring": true,
                 "autumn": false
             })
         }
-        else if(value == "autumn"){
+        else if(value === "autumn"){
             setCheckSemester({
                 "spring": false,
                 "autumn": true
@@ -129,21 +125,21 @@ const LoadCourses = () =>{
     function handleCheckCredits(event) {
         const { value } = event.target;
         
-        if(value == "3"){
+        if(value === "3"){
             setCheckCredits({
                 "3": true,
                 "6": false,
                 "8": false
             })
         }
-        else if(value == "6"){
+        else if(value === "6"){
             setCheckCredits({
                 "3": false,
                 "6": true,
                 "8": false
             })
         }
-        else if(value == "8"){
+        else if(value === "8"){
             setCheckCredits({
                 "3": false,
                 "6": false,
@@ -163,22 +159,13 @@ const LoadCourses = () =>{
     }
     
 
+    const [searchText, setSearchText] = React.useState("")
+
 
 
     function handleChange(event) {
-        const searchText = event.target.value.toLowerCase();
+        setSearchText(event.target.value.toLowerCase())
         console.log("searchText", searchText);
-    
-        const updatedCoursesList = coursesList.map(course => ({
-                ...course,
-                toggle: course.title.toLowerCase().includes(searchText) || course.code.toLowerCase().includes(searchText)
-            }))
-        
-    
-        setCoursesList(updatedCoursesList)
-    
-        const filteredCourses = updatedCoursesList.filter(course => course.toggle);
-        setCourseData(filteredCourses);
     }
 
 
@@ -230,7 +217,7 @@ const LoadCourses = () =>{
 
             const updatedCoursesList = newCourseList.map(course => ({
                 ...course,
-                toggle: checked ? course.semester == name : true
+                toggle: checked ? course.semester === name : true
             }))
             newCourseList = updatedCoursesList.filter(course => course.toggle)
         }
@@ -244,14 +231,23 @@ const LoadCourses = () =>{
 
             const updatedCoursesList = newCourseList.map(course => ({
                 ...course,
-                toggle: checked ? course.credits == parseFloat(name) : true
+                toggle: checked ? course.credits === parseFloat(name) : true
             }))
             newCourseList = updatedCoursesList.filter(course => course.toggle)
         }
 
-        setCourseData(newCourseList)
+        console.log(searchText)
+        const updatedCoursesList = newCourseList.map(course => ({
+            ...course,
+            toggle: course.title.toLowerCase().includes(searchText) || course.code.toLowerCase().includes(searchText)
+        }))
+        
+    
+        newCourseList = updatedCoursesList.filter(course => course.toggle)
 
-    }, [checkTag, checkYear, checkSemester, checkCredits])
+        setCoursesList(newCourseList)
+
+    }, [checkTag, checkYear, checkSemester, checkCredits, searchText])
 
 
 
@@ -267,7 +263,7 @@ const LoadCourses = () =>{
             drop: (item, monitor) => {
 
                 let flag = 0;
-                courseData.map(course => {
+                coursesList.map(course => {
                     if(course.code === item.course.code){
                         console.log("course already exists");
                         flag = 1;
@@ -275,7 +271,7 @@ const LoadCourses = () =>{
                 })
 
                 if(flag === 0){
-                    setCourseData([...courseData, item.course]);
+                    setCoursesList([...coursesList, item.course]);
                 }
 
                 if(item.course.semester == 'spring'){
@@ -293,19 +289,23 @@ const LoadCourses = () =>{
                 isOver: !!monitor.isOver(),
             }),
         }),
-        [courseData] // Add fallSem as a dependency
+        [coursesList] // Add fallSem as a dependency
     );
+
 
     
 
     return (
         <div className="load-courses-cont">
-            <h1>load courses</h1>
-            <input 
-                type="text"
-                placeholder="Enter course"
-                onChange={handleChange}
-            ></input>
+            <div className="search-bar">
+                <img src={searchIcon} alt="" />
+                <input 
+                    type="text"
+                    placeholder="Enter course"
+                    onChange={handleChange}
+                ></input>
+            </div>
+            
 
 
             <div className="filter">
@@ -453,7 +453,7 @@ const LoadCourses = () =>{
             {
                 //cant use useEffect because it cant return anything other than a funcion
                 
-                courseData.map(course => (
+                coursesList.map(course => (
                     <CreateLabel course={course} key={course.code} />
                 ))
             }

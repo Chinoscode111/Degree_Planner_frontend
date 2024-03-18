@@ -163,50 +163,7 @@
 
 
 
-.load-courses-cont{
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-    padding: 20px;
-}
 
-.load-courses-cont > input{
-    width: 250px;
-    height: 20px;
-    padding-left: 5px;
-}
-
-.load-courses-cont > *{
-    margin-bottom: 20px;
-}
-
-.filter-title{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-}
-
-.filter-title > p{
-    font-size: 1.2rem;
-}
-
-.filter-title > button{
-    border: none;
-    background-color: transparent;
-}
-
-.filter-title > button:hover{
-    cursor: pointer;
-}
-
-.filter-elements{
-    display: flex;
-}
-
-.filter-element{
-    margin-right: 20px;
-    margin-left: 3px;
-}
 
 
 
