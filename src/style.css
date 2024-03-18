@@ -52,6 +52,27 @@
     flex-direction: column;
 }
 
+.home--dep-deg{
+    width: 653px;
+    height: 117px;
+    margin: 20px;
+    border-radius: 40px;
+    background: #AFFFBC;
+    box-shadow: 0px 14px 30px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home--dep-deg > p{
+    color: #000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
 .home--top{
     display: flex;
     justify-content: space-evenly;
@@ -142,19 +163,7 @@
 
 
 
-.load-courses-cont{
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    padding: 20px;
-}
 
-.load-courses-cont > input{
-    width: 250px;
-    height: 20px;
-    padding-left: 5px;
-}
 
-.load-courses-cont > *{
-    margin-bottom: 20px;
-}
+
+

@@ -20,7 +20,7 @@ const PieChart = () => {
             lineWidth={60}
             data={data}
             label={({ dataEntry }) => `${dataEntry.label}`}
-            labelPosition={90}
+            labelPosition={70}
             />
 
             <div className="piechart--center">

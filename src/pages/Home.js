@@ -11,6 +11,10 @@ const Home = () => {
     return (
         <div className="home-cont">
             <Navbar page={0}/>
+            <div className="home--dep-deg">
+                <p>Department - Mechanical engineering</p>
+                <p>Degree - Bachelor's of Technology</p>
+            </div>
             <div className="home--top">
                 <div className="home--left">
                     <p>96 units</p>
