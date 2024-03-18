@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Home from "./Home";
 import Login from "./Login"
+import "../components/shared/login.css"
+
 
 const RegisterForm = () => {
     return (

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Home from "./Home";
 import Register from "./Register"
+import "../components/shared/login.css"
 
 function LoginForm() {
     // const [PasswordInputType, ToggleIcon] = usePasswordToggle();
