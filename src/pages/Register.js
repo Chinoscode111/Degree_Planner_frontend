@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import Home from "./Home";
+import Login from "./Login"
 
 const RegisterForm = () => {
     return (
@@ -48,12 +51,12 @@ const RegisterForm = () => {
                     <input id='degree' type ="text" placeholder = 'Degree' />
                 </div>
                 <div className="SignUp">
-                    <p>Sign up</p>
+                    <Link to={"/home"} element={<Home />}><p>Sign up</p> </Link>
                 </div>
 
                 <div className="already">
                     <p>Already have an account? </p>
-                    <a href="/Login"><b>Login here</b></a>
+                    <Link to={"/"} element={<Login />}><p>Login</p> </Link>
                 </div>
 
             </div>

@@ -1,6 +1,9 @@
 import React from "react";
 import { useState } from "react";
 // import usePasswordToggle from "../components/ShowPassword/usePasswordToggle";
+import { Link } from "react-router-dom";
+import Home from "./Home";
+import Register from "./Register"
 
 function LoginForm() {
     // const [PasswordInputType, ToggleIcon] = usePasswordToggle();
@@ -37,11 +40,11 @@ function LoginForm() {
         </div>
 
         <div className="log">
-          <p>Log in</p>
+          <Link to={"/home"} element={<Home />}><p>Log in</p> </Link>
         </div>
 
         <div className="acc">
-          <a href="/Register">Create account</a>
+        <Link to={"/register"} element={<Register />}><p>Register</p> </Link>
         </div>
       </div>
     </div>
