@@ -10,7 +10,7 @@
 
 .course-label{
     width: 291px;
-    height: 45px;
+    /* height: 45px; */
     flex-shrink: 0;
     border-radius: 20px;
     background: #F4F4F4;
@@ -22,7 +22,14 @@
     padding: 20px;
 }
 
-.course-label > h3{
+.course-label-first{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #737373;
+}
+
+.course-label-first > h3{
     color: #15A52C;
     font-size: 1.5rem;
     font-style: normal;
