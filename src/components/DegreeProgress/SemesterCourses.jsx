@@ -117,18 +117,13 @@ const SemesterCourses = () => {
    
 
 
-    const style = {
-        width: "10cm",
-        height: "fit-content",
-        border: "2px solid red",
-        margin: "10px",
-    }
+
 
   return (
     <>
 
-        <div className="fall-sem-cont" ref={dropFallSem} style={style}  >
-            <h3>Fall Semester</h3>
+        <div className="autumn-sem-cont" ref={dropFallSem} >
+            <h3 className='sem-title'>Autumn Semester</h3>
             {fallSem.map(course => (
                 
                 <div className="course" key={course.code}  ref={dragFallSem} style={{border:"1px solid black"}} >
@@ -138,8 +133,8 @@ const SemesterCourses = () => {
             ))}
         </div>
         
-        <div className="spring-sem-cont" ref={dropSpringSem}  style={style}  >
-            <h3>Spring Semester</h3>
+        <div className="spring-sem-cont" ref={dropSpringSem}>
+            <h3 className='sem-title'>Spring Semester</h3>
             {springSem.map(course => (
                 
                 <div className="course" ref={dragSpringSem} style={{border:"1px solid black"}}  key={course.code}>
