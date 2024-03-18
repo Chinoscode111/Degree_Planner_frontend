@@ -6,10 +6,11 @@
 
 .cont{
     background: #F6F6F6;
+    /* width: 400px; */
 }
 
 .course-label{
-    width: 291px;
+    width: 391px;
     /* height: 45px; */
     flex-shrink: 0;
     border-radius: 20px;
@@ -18,7 +19,7 @@
     flex-direction: column;
     justify-content: center;
     /* align-items: center; */
-    margin: 10px;
+    margin: 10px 0px;
     padding: 20px;
 }
 
@@ -43,6 +44,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    width: 400px;
 }
 
 
@@ -54,14 +56,14 @@
     background-color: #FFF;
 }
 
-.load-courses-cont > input{
-    width: 250px;
+/* .load-courses-cont > input{
+    width: 400px;
     height: 20px;
     padding-left: 5px;
-}
+} */
 
 .load-courses-cont > *{
-    width: 311px;
+    width: 400px;
     margin-bottom: 20px;
 }
 
@@ -137,7 +139,7 @@
 }
 
 .search-bar{
-    width: 327px;
+    width: 400px;
     height: 47px;
     border-radius: 40px;
     background: #6B6B6B;
@@ -155,6 +157,7 @@
     margin-left: 10px;
     background-color: transparent;
     border: none;
+    width: 340px;
 }
 
 .search-bar > input::placeholder{
