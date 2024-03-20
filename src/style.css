@@ -37,6 +37,7 @@
 
 .navbar > *:hover{
     font-weight: bold;
+    transform: scale(1.05);
 }
 
 

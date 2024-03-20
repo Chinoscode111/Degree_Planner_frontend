@@ -24,15 +24,18 @@ const Navbar = (props) =>{
     //     fontWeight: "normal"
     // }
     const styles = {
-        0: {fontWeight : "bold"},
+        0: {fontWeight : "bold", textShadow: "1px 1px 8px #dddddd"},
         1: {fontWeight : "normal"}
     }
 
 
     return(
         <div className="navbar">
-            <Link to={"/"} style={styles[props.page === 0 ? 0 : 1]}>Home</Link>
+            <Link to={"/home"} style={styles[props.page === 0 ? 0 : 1]}>Home</Link>
             <Link to={"/progress"} style={styles[props.page === 1 ? 0 : 1]}>Degree Progress</Link>
+            <Link to={"/"} style={styles[props.page === 3 ? 0 : 1]}>Logout</Link>
+            {/* <Link to={"/register"} style={styles[props.page === 1 ? 0 : 1]}>Register</Link> */}
+
         </div>
     )
 }

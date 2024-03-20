@@ -14,7 +14,6 @@ const App = () => {
 
     const [fallSem, setFallSem] = useState([]);
 
-
     return(
 
         <Context.Provider value={{courseData, setCourseData, fallSem, setFallSem, setSpringSem, springSem}}>

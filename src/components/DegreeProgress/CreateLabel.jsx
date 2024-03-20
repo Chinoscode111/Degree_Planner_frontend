@@ -26,9 +26,12 @@ const CreateLabel = ({course}) => {
 
     return(
         <div className="course-label" key={course.code} ref={drag} >
-            <h3>{course.code}</h3>
-            <p>{course.title}</p>
-        </div>
+            <div className="course-label-first">
+              <h3>{course.code}</h3>
+              <p>{course.credits}.0</p>
+            </div>
+                    <p>{course.title}</p>
+         </div>
     )
 }
 
