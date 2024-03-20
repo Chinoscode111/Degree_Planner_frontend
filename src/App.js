@@ -15,15 +15,16 @@ const App = () => {
     const [fallSem, setFallSem] = useState([]);
 
     
-    const [data, setData] = React.useState([])
-    
+    const [dataCourses, setDataCourses] = React.useState([])
+    const [coursesList, setCoursesList] = React.useState([])
+    const [ogList, setOgList] = React.useState([])
 
     console.log("start")
     useEffect(() => {
         const fetchCourses = async() => {
             try{
                 const response = await api.get('/courses')
-                setData(response.data)
+                setDataCourses(response.data)
             } catch (err) {
                 console.log(err.response.data)
                 console.log(err.response.status)
@@ -32,22 +33,31 @@ const App = () => {
         }
 
         fetchCourses()
+
+
         
     }, [])
     console.log("stop")
 
-    const [coursesList, setCoursesList] = React.useState(data.map(course => (
-        {...course, toggle: true}
-    )))
+    // React.useEffect()
+    useEffect(() => {
+        // This effect will run whenever dataCourses changes
+        if (dataCourses.length > 0) {
+            setOgList(dataCourses.map(course => ({ ...course, toggle: true })))
+        }
+    }, [dataCourses]);
 
-    const ogList = data.map(course => (
-        {...course, toggle: true}
-    ))
+    useEffect(() => {
+        setCoursesList(ogList);
+    }, [ogList])
+    
+
+    
 
 
     return(
 
-        <Context.Provider value={{ogList, coursesList, setCoursesList, fallSem, setFallSem, setSpringSem, springSem}}>
+        <Context.Provider value={{ogList, coursesList, setCoursesList, fallSem, setFallSem, springSem, setSpringSem}}>
         <DndProvider backend={HTML5Backend}>
         <AppRouter />   
         </DndProvider>
