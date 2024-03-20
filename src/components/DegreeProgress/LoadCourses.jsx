@@ -4,12 +4,13 @@ import { useDrop } from "react-dnd"
 import { Context } from "../../App"
 import searchIcon from "./images/search.svg"
 
+
 const LoadCourses = () =>{
 
-    const {setCoursesList, coursesList, fallSem, setFallSem, springSem, setSpringSem} = useContext(Context);
-
+    const {ogList, setCoursesList, coursesList, fallSem, setFallSem, springSem, setSpringSem} = useContext(Context);
     coursesList.sort((a, b) => a.code.localeCompare(b.code));
     console.log("coursesData", coursesList);
+    console.log("oglist", ogList)
 
 
     // console.log("courses list", coursesList);
@@ -171,7 +172,7 @@ const LoadCourses = () =>{
 
     React.useEffect( () => {
 
-        var newCourseList = coursesList
+        var newCourseList = ogList
 
         // console.log(checkTag)
         for (const tag in checkTag){

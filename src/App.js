@@ -17,10 +17,14 @@ const App = () => {
         {...course, toggle: true}
     )))
 
+    const ogList = data.map(course => (
+        {...course, toggle: true}
+    ))
+
 
     return(
 
-        <Context.Provider value={{coursesList, setCoursesList, fallSem, setFallSem, setSpringSem, springSem}}>
+        <Context.Provider value={{ogList, coursesList, setCoursesList, fallSem, setFallSem, setSpringSem, springSem}}>
         <DndProvider backend={HTML5Backend}>
         <AppRouter />   
         </DndProvider>
