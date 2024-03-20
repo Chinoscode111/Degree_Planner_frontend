@@ -3,7 +3,8 @@ import AppRouter from "./AppRouter";
 import {HTML5Backend} from 'react-dnd-html5-backend'
 import {DndProvider} from 'react-dnd';
 import api from './api/courses'
-import axios from "axios";
+import axios from 'axios'
+import { API_URL } from "./api/courses";
 
 export const Context = createContext();
 
@@ -23,12 +24,18 @@ const App = () => {
     useEffect(() => {
         const fetchCourses = async() => {
             try{
-                const response = await axios.get('http://localhost:3500/courses')
+                // const headers = {
+                //     "Access-Control-Allow-Origin": "*",
+                //     "method" : "GET"
+                // }
+                const response = await axios.get(API_URL+'courses/')
+                const data = await response.data
+                console.log("data", data)
                 setDataCourses(response.data)
             } catch (err) {
-                console.log(err.response.data)
-                console.log(err.response.status)
-                console.log(err.response.header)
+                console.log(err)
+                // console.log(err.response.status)
+                // console.log(err.response.header)
             }
         }
 

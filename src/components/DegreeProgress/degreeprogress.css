@@ -70,7 +70,7 @@
 .filter{
     background-color: rgb(0, 148, 98);
     padding: 10px 20px 10px 20px;
-    border-radius: 30px;
+    border-radius: 20px;
 }
 
 
@@ -81,7 +81,7 @@
     font-size: 1.4rem;
     /* width: 183px; */
     /* height: 44px; */
-    border-radius: 40px;
+    border-radius: 10px;
     background: #AFFFBC;
     padding: 10px 15px 10px 15px;
 }
@@ -114,7 +114,7 @@
 }
 
 .autumn-sem-cont, .spring-sem-cont{
-    width: 390px;
+    width: 440px;
     height: 818px;
     flex-shrink: 0;
     border-radius: 20px;

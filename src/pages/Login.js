@@ -7,7 +7,7 @@ import Register from "./Register";
 import { MdLock } from "react-icons/md";
 import { GoPerson } from "react-icons/go";
 
-import "../../src/login.css";
+import "../../src/components/shared/login.css";
 
 function LoginForm() {
   // const [PasswordInputType, ToggleIcon] = usePasswordToggle();
@@ -51,7 +51,9 @@ function LoginForm() {
           </div>
 
           <div className="log">
-            <p>Log in</p>
+            <Link to={"/home"} element={<Home />}>
+              <p>Login</p>
+            </Link>
           </div>
 
           <div className="acc">

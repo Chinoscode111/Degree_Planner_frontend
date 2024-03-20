@@ -2,6 +2,7 @@ import React from "react";
 import PieChart from "../components/Home/PieChart";
 import Navbar from "../components/shared/Navbar";
 import Progress_Bar from "../components/Home/Progress_Bar";
+import "../components/Home/home.css"
 
 const Home = () => {
     const style = {
