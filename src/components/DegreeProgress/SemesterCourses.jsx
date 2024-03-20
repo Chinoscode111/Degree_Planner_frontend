@@ -6,7 +6,7 @@ import SemLabel from './SemLabel.jsx';
 
 const SemesterCourses = () => {
 
-    const {setCourseData, courseData, fallSem, setFallSem, setSpringSem, springSem} = useContext(Context);
+    const {setCoursesList, coursesList, fallSem, setFallSem, setSpringSem, springSem} = useContext(Context);
 
    
 
@@ -31,9 +31,9 @@ const SemesterCourses = () => {
                 if(flag === 0) {
                     setFallSem([...fallSem, item.course]);
 
-                    //agar courseData ke state set ho chuki hai toh again state change mai puranai element kaise aa sakte hai??
+                    //agar coursesList ke state set ho chuki hai toh again state change mai puranai element kaise aa sakte hai??
                     
-                    // setCourseData(courseData.filter(course => course.code !== item.course.code));
+                    // setCoursesList(coursesList.filter(course => course.code !== item.course.code));
                 }
 
             },
@@ -66,7 +66,7 @@ const SemesterCourses = () => {
                 if(flag === 0) {
                     setSpringSem([...springSem, item.course]);
 
-                    // setCourseData(courseData.filter(course => course.code !== item.course.code));
+                    // setCoursesList(coursesList.filter(course => course.code !== item.course.code));
                 
                 }
 
@@ -80,21 +80,21 @@ const SemesterCourses = () => {
         [springSem] // Add fallSem as a dependency
     );
 
-    //removes all the elements of spring and fall semester from the courseData every time the spring and fall semester state changes
+    //removes all the elements of spring and fall semester from the coursesList every time the spring and fall semester state changes
 
     useEffect( ()=>{
 
         springSem.map(course =>{
-            setCourseData(courseData.filter(courseD => courseD.code !== course.code));
+            setCoursesList(coursesList.filter(courseD => courseD.code !== course.code));
          })
 
 
          fallSem.map(course =>{
-            setCourseData(courseData.filter(courseD => courseD.code !== course.code));
+            setCoursesList(coursesList.filter(courseD => courseD.code !== course.code));
          })
     } , [fallSem, springSem])
 
-    console.log("courseData",courseData);
+    console.log("coursesList",coursesList);
 
 //to drop course back to the list
    

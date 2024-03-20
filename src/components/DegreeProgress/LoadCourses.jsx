@@ -2,21 +2,17 @@ import React, { useContext } from "react"
 import CreateLabel, { ItemTypes } from "./CreateLabel"
 import { useDrop } from "react-dnd"
 import { Context } from "../../App"
-import { useEffect } from "react"
 import searchIcon from "./images/search.svg"
+
 
 const LoadCourses = () =>{
 
-    const {courseData, setCourseData} = useContext(Context);
+    const {ogList, setCoursesList, coursesList, fallSem, setFallSem, springSem, setSpringSem} = useContext(Context);
+    coursesList.sort((a, b) => a.code.localeCompare(b.code));
+    console.log("coursesData", coursesList);
+    console.log("oglist", ogList)
 
-    const courses = courseData;
-    courses.sort((a, b) => a.code.localeCompare(b.code));
-    console.log("coursesData", courseData);
 
-
-    const [coursesList, setCoursesList] = React.useState(courses.map(course => (
-        {...course, toggle: true}
-    )))
     // console.log("courses list", coursesList);
 
         
@@ -30,6 +26,7 @@ const LoadCourses = () =>{
         "4": false
     })
 
+    
     
     function handleCheckYear(event){
         const {name, checked} = event.target
@@ -99,13 +96,13 @@ const LoadCourses = () =>{
         const { value } = event.target;
         console.log("value", value)
 
-        if(value == "spring"){
+        if(value === "spring"){
             setCheckSemester({
                 "spring": true,
                 "autumn": false
             })
         }
-        else if(value == "autumn"){
+        else if(value === "autumn"){
             setCheckSemester({
                 "spring": false,
                 "autumn": true
@@ -130,21 +127,21 @@ const LoadCourses = () =>{
     function handleCheckCredits(event) {
         const { value } = event.target;
         
-        if(value == "3"){
+        if(value === "3"){
             setCheckCredits({
                 "3": true,
                 "6": false,
                 "8": false
             })
         }
-        else if(value == "6"){
+        else if(value === "6"){
             setCheckCredits({
                 "3": false,
                 "6": true,
                 "8": false
             })
         }
-        else if(value == "8"){
+        else if(value === "8"){
             setCheckCredits({
                 "3": false,
                 "6": false,
@@ -176,7 +173,7 @@ const LoadCourses = () =>{
 
     React.useEffect( () => {
 
-        var newCourseList = coursesList
+        var newCourseList = ogList
 
         // console.log(checkTag)
         for (const tag in checkTag){
@@ -222,7 +219,7 @@ const LoadCourses = () =>{
 
             const updatedCoursesList = newCourseList.map(course => ({
                 ...course,
-                toggle: checked ? course.semester == name : true
+                toggle: checked ? course.semester === name : true
             }))
             newCourseList = updatedCoursesList.filter(course => course.toggle)
         }
@@ -236,7 +233,7 @@ const LoadCourses = () =>{
 
             const updatedCoursesList = newCourseList.map(course => ({
                 ...course,
-                toggle: checked ? course.credits == parseFloat(name) : true
+                toggle: checked ? course.credits === parseFloat(name) : true
             }))
             newCourseList = updatedCoursesList.filter(course => course.toggle)
         }
@@ -250,7 +247,7 @@ const LoadCourses = () =>{
     
         newCourseList = updatedCoursesList.filter(course => course.toggle)
 
-        setCourseData(newCourseList)
+        setCoursesList(newCourseList)
 
     }, [checkTag, checkYear, checkSemester, checkCredits, searchText])
 
@@ -266,7 +263,26 @@ const LoadCourses = () =>{
         () => ({
             accept: ItemTypes.COURSES,
             drop: (item, monitor) => {
-              console.log("course dropped");
+
+                let flag = 0;
+                coursesList.map(course => {
+                    if(course.code === item.course.code){
+                        console.log("course already exists");
+                        flag = 1;
+                    }
+                })
+
+                if(flag === 0){
+                    setCoursesList([...coursesList, item.course]);
+                }
+
+                if(item.course.semester == 'spring'){
+                    setSpringSem(springSem.filter(course => course.code !== item.course.code));
+                }
+
+                if(item.course.semester == 'autumn'){
+                    setFallSem(fallSem.filter(course => course.code !== item.course.code));
+                }
 
 
 
@@ -275,8 +291,9 @@ const LoadCourses = () =>{
                 isOver: !!monitor.isOver(),
             }),
         }),
-         // Add fallSem as a dependency
+        [coursesList] // Add fallSem as a dependency
     );
+
 
     
 
@@ -438,7 +455,7 @@ const LoadCourses = () =>{
             {
                 //cant use useEffect because it cant return anything other than a funcion
                 
-                courseData.map(course => (
+                coursesList.map(course => (
                     <CreateLabel course={course} key={course.code} />
                 ))
             }
