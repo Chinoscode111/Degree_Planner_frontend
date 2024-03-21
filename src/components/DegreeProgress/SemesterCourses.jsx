@@ -84,15 +84,17 @@ const SemesterCourses = () => {
 
     useEffect( ()=>{
 
+        fallSem.map(course =>{
+           setCoursesList(coursesList.filter(courseD => courseD.code !== course.code));
+        })
+
+    } , [fallSem])
+
+    useEffect(() => {
         springSem.map(course =>{
             setCoursesList(coursesList.filter(courseD => courseD.code !== course.code));
          })
-
-
-         fallSem.map(course =>{
-            setCoursesList(coursesList.filter(courseD => courseD.code !== course.code));
-         })
-    } , [fallSem, springSem])
+    }, [springSem])
 
     // //console.log("coursesList",coursesList);
 
