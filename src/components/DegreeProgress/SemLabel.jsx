@@ -18,7 +18,7 @@ const SemLabel = ({course}) => {
   return (
     <>
          
-         <div className="course-label" key={course.code} ref={dragCourse} >
+         <div className="course-label" key={course.code} ref={dragCourse} style={{opacity}} >
             <div className="course-label-first">
               <h3>{course.code}</h3>
               <p>{course.credits}.0</p>

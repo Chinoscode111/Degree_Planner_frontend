@@ -2,7 +2,6 @@ import React, { createContext, useEffect, useState } from "react";
 import AppRouter from "./AppRouter";
 import {HTML5Backend} from 'react-dnd-html5-backend'
 import {DndProvider} from 'react-dnd';
-import data from './data.json';
 import api from './api/courses'
 import axios from 'axios'
 import { API_URL } from "./api/courses";

@@ -9,11 +9,11 @@ const LoadCourses = () =>{
 
     const {ogList, setCoursesList, coursesList, fallSem, setFallSem, springSem, setSpringSem} = useContext(Context);
     coursesList.sort((a, b) => a.code.localeCompare(b.code));
-    console.log("coursesData", coursesList);
-    console.log("oglist", ogList)
+    //console.log("coursesData", coursesList);
+    //console.log("oglist", ogList)
 
 
-    // console.log("courses list", coursesList);
+    // //console.log("courses list", coursesList);
 
         
 
@@ -30,7 +30,7 @@ const LoadCourses = () =>{
     
     function handleCheckYear(event){
         const {name, checked} = event.target
-        console.log(checked)
+        //console.log(checked)
 
         setCheckYear(prevCheckYear => (
             {...prevCheckYear,
@@ -57,7 +57,7 @@ const LoadCourses = () =>{
     
     function handleCheckTag(event){
         const {name, checked} = event.target
-        console.log(checked)
+        //console.log(checked)
 
         setCheckTag(prevCheckTag => (
             {...prevCheckTag,
@@ -94,7 +94,7 @@ const LoadCourses = () =>{
     
     function handleCheckSemester(event) {
         const { value } = event.target;
-        console.log("value", value)
+        //console.log("value", value)
 
         if(value === "spring"){
             setCheckSemester({
@@ -167,7 +167,7 @@ const LoadCourses = () =>{
 
     function handleChange(event) {
         setSearchText(event.target.value.toLowerCase())
-        console.log("searchText", searchText);
+        //console.log("searchText", searchText);
     }
 
 
@@ -175,11 +175,11 @@ const LoadCourses = () =>{
 
         var newCourseList = ogList
 
-        // console.log(checkTag)
+        // //console.log(checkTag)
         for (const tag in checkTag){
             const name = tag
             const checked = checkTag[tag]
-            // console.log("checked", checked)
+            // //console.log("checked", checked)
 
 
             const updatedCoursesList = newCourseList.map(course => ({
@@ -193,12 +193,12 @@ const LoadCourses = () =>{
 
 
 
-        // console.log(checkYear)
+        // //console.log(checkYear)
         for (var i = 1; i<=4; i++){
             const year = i.toString()
             const name = year
             const checked = checkYear[year]
-            // console.log("checked", checked)
+            // //console.log("checked", checked)
 
 
             const updatedCoursesList = newCourseList.map(course => ({
@@ -211,10 +211,10 @@ const LoadCourses = () =>{
 
 
         for (const semester in checkSemester){
-            console.log("semester", semester)
+            //console.log("semester", semester)
             const name = semester
             const checked = checkSemester[semester]
-            console.log("checked", checked)
+            //console.log("checked", checked)
 
 
             const updatedCoursesList = newCourseList.map(course => ({
@@ -228,7 +228,7 @@ const LoadCourses = () =>{
         for (const credits in checkCredits){
             const name = credits
             const checked = checkCredits[credits]
-            console.log("checked", checked)
+            //console.log("checked", checked)
 
 
             const updatedCoursesList = newCourseList.map(course => ({
@@ -238,7 +238,7 @@ const LoadCourses = () =>{
             newCourseList = updatedCoursesList.filter(course => course.toggle)
         }
 
-        console.log(searchText)
+        //console.log(searchText)
         const updatedCoursesList = newCourseList.map(course => ({
             ...course,
             toggle: course.title.toLowerCase().includes(searchText) || course.code.toLowerCase().includes(searchText)
@@ -253,7 +253,8 @@ const LoadCourses = () =>{
 
 
 
-
+console.log("fallsem", fallSem);
+console.log("spring sem", springSem);
 
 
 
@@ -267,7 +268,7 @@ const LoadCourses = () =>{
                 let flag = 0;
                 coursesList.map(course => {
                     if(course.code === item.course.code){
-                        console.log("course already exists");
+                        //console.log("course already exists");
                         flag = 1;
                     }
                 })
@@ -450,7 +451,7 @@ const LoadCourses = () =>{
                 </div>
             </div>
 
-            <div className="course-cont" ref={dropCourse}>
+            <div className="course-cont" ref={dropCourse} style={{width:"25rem", border:"1px solid red", padding:"0 0 19rem 0"}} >
 
             {
                 //cant use useEffect because it cant return anything other than a funcion

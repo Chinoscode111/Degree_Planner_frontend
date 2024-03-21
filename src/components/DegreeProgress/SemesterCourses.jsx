@@ -44,8 +44,8 @@ const SemesterCourses = () => {
         [fallSem] // Add fallSem as a dependency
     );
 
-    console.log("fall sem",fallSem);
-    console.log("spring sem",springSem);
+    // //console.log("fall sem",fallSem);
+    // //console.log("spring sem",springSem);
 
     const [, dropSpringSem] = useDrop(
         () => ({
@@ -94,7 +94,7 @@ const SemesterCourses = () => {
          })
     } , [fallSem, springSem])
 
-    console.log("coursesList",coursesList);
+    // //console.log("coursesList",coursesList);
 
 //to drop course back to the list
    
