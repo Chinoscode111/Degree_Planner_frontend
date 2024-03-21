@@ -1,0 +1,127 @@
+
+
+.home-cont{
+    display: flex;
+    flex-direction: column;
+}
+
+.home--dep-deg{
+    width: 653px;
+    height: 117px;
+    margin: 20px;
+    border-radius: 40px;
+    background: #AFFFBC;
+    box-shadow: 0px 14px 30px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home--dep-deg > p{
+    color: #000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.home--top{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.home--left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: blanchedalmond; */
+    padding: 40px;
+}
+
+.home--left > p, .home--right>h2{
+    margin-bottom: 60px;
+    font-weight: 700;
+    font-size: 32px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.pie-chart-cont{
+    /* background-color: aqua; */
+    width: 451px;
+    height: 451px;
+    /* display: flex;
+    flex-direction: column; */
+    position: relative;
+}
+.piechart--center{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.piechart--centerperc{
+    font-size: 300%;
+}
+
+.piechart--chart{
+    left: 0;
+    top: 0;
+}
+
+.piechart--chart text{
+    font-size: 0.5rem;
+    /* background-color: blueviolet; */
+    z-index: 1;
+}
+
+
+
+
+.home--bottom{
+    /* background-color: blueviolet; */
+    padding: 40px 0px 30px 80px;
+
+}
+
+.home--bottom > ul > li{
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.home--right{
+    width: 50%;
+    padding: 11mm;
+}
+
+.home--right .progress-container{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    margin: 5mm 0px;
+    align-items: center;
+}
+
+.home--right #req-para{
+    width: fit-content;
+    margin: 2mm auto;
+    display: block;
+}
+
+
+.home--right .progress-container h4{
+    width: 50mm;
+}
+
+
+
+
+
+
+
+
+
+

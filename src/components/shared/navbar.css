@@ -1,0 +1,22 @@
+.navbar{
+    display: flex;
+    background-color: black;
+    width: 80%;
+    max-width: 1200px;
+    height: 129px;
+    border-radius: 0px 0px 40px 40px;
+    margin-left: 10%;
+    align-items: center;
+}
+
+.navbar > *{
+    margin: 40px;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar > *:hover{
+    font-weight: bold;
+    transform: scale(1.05);
+}
