@@ -47,7 +47,7 @@ function LoginForm() {
               <input id="third" type="checkbox" />
               <label for="third">Remember me</label>
             </div>
-            <a>Forgot Password?</a>
+            <p>Forgot Password?</p>
           </div>
 
           <div className="log">
@@ -57,8 +57,9 @@ function LoginForm() {
           </div>
 
           <div className="acc">
+          <p>Don't have an account? </p>
             <Link to={"/register"} element={<Register />}>
-              <p>Register</p>{" "}
+              <b>Sign up</b>{" "}
             </Link>
           </div>
         </div>
