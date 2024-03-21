@@ -3,6 +3,7 @@ import Navbar from "../components/shared/Navbar";
 import LoadCourses from "../components/DegreeProgress/LoadCourses";
 import SemesterCourses from "../components/DegreeProgress/SemesterCourses";
 import "../components/DegreeProgress/degreeprogress.css"
+import Year from "../components/DegreeProgress/Year";
 
 const DegreeProgress = () => {
     return(
@@ -12,7 +13,9 @@ const DegreeProgress = () => {
 
             <LoadCourses />
             <SemesterCourses />
+            
             </div>
+            
         </div>
         
     )

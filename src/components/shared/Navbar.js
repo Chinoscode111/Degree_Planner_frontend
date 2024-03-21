@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css"
+import Year from "../DegreeProgress/Year";
 
 const Navbar = (props) =>{
     let navBarStyle1, navBarStyle2
@@ -35,6 +36,7 @@ const Navbar = (props) =>{
             <Link to={"/home"} style={styles[props.page === 0 ? 0 : 1]}>Home</Link>
             <Link to={"/progress"} style={styles[props.page === 1 ? 0 : 1]}>Degree Progress</Link>
             <Link to={"/"} style={styles[props.page === 3 ? 0 : 1]}>Logout</Link>
+            <Year />
             {/* <Link to={"/register"} style={styles[props.page === 1 ? 0 : 1]}>Register</Link> */}
 
         </div>
