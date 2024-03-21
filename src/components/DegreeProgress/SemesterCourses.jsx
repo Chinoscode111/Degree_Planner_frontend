@@ -6,7 +6,7 @@ import SemLabel from './SemLabel.jsx';
 
 const SemesterCourses = () => {
 
-    const {setCoursesList, coursesList, fallSem, setFallSem, setSpringSem, springSem} = useContext(Context);
+    const {setCoursesList,totalCredits , coursesList, fallSem, setFallSem, setSpringSem, springSem} = useContext(Context);
 
    
 
