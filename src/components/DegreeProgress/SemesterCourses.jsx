@@ -6,7 +6,7 @@ import SemLabel from './SemLabel.jsx';
 
 const SemesterCourses = () => {
 
-    const {setCoursesList, coursesList, fallSem, setFallSem, setSpringSem, springSem} = useContext(Context);
+    const {setCoursesList,totalCredits , coursesList, fallSem, setFallSem, setSpringSem, springSem} = useContext(Context);
 
    
 
@@ -84,15 +84,17 @@ const SemesterCourses = () => {
 
     useEffect( ()=>{
 
+        fallSem.map(course =>{
+           setCoursesList(coursesList.filter(courseD => courseD.code !== course.code));
+        })
+
+    } , [fallSem])
+
+    useEffect(() => {
         springSem.map(course =>{
             setCoursesList(coursesList.filter(courseD => courseD.code !== course.code));
          })
-
-
-         fallSem.map(course =>{
-            setCoursesList(coursesList.filter(courseD => courseD.code !== course.code));
-         })
-    } , [fallSem, springSem])
+    }, [springSem])
 
     // //console.log("coursesList",coursesList);
 

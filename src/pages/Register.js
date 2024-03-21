@@ -43,16 +43,14 @@ const RegisterForm = () => {
           <LuGraduationCap />
           <input id="degree" type="text" placeholder="Degree" />
         </div>
-        <div className="SignUp">
-          <Link to={"/home"} element={<Home />}>
-            <p>Sign up</p>{" "}
-          </Link>
-        </div>
+        {/* <div className="SignUp"> */}
+          <input type="submit" value={"Sign up"}  className="SignUp"  />
+        {/* </div> */}
 
         <div className="already">
           <p>Already have an account? </p>
           <Link to={"/"} element={<Login />}>
-            <b>Login</b>{" "}
+            <b>Login</b>
           </Link>
         </div>
       </div>

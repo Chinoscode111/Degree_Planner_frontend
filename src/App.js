@@ -19,8 +19,9 @@ const App = () => {
     const [dataCourses, setDataCourses] = React.useState([])
     const [coursesList, setCoursesList] = React.useState([])
     const [ogList, setOgList] = React.useState([])
+    const [totalCredits, setTotalCredits] = React.useState(0)
 
-    console.log("start")
+    // console.log("start")
     useEffect(() => {
         const fetchCourses = async() => {
             try{
@@ -44,7 +45,7 @@ const App = () => {
 
         
     }, [])
-    console.log("stop")
+    // console.log("stop")
 
     // React.useEffect()
     useEffect(() => {
@@ -64,7 +65,7 @@ const App = () => {
 
     return(
 
-        <Context.Provider value={{ogList, coursesList, setCoursesList, fallSem, setFallSem, springSem, setSpringSem}}>
+        <Context.Provider value={{ogList, coursesList, setCoursesList, fallSem, setFallSem, springSem, setSpringSem, totalCredits,setTotalCredits}}>
         <DndProvider backend={HTML5Backend}>
         <AppRouter />   
         </DndProvider>
