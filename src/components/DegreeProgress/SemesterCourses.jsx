@@ -1,12 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react'
 import{useDrop, useDrag} from 'react-dnd';
 import { ItemTypes } from './CreateLabel.jsx';
-import { Context } from '../../App.js';
+import { Context, ProgressContext } from '../../App.js';
 import SemLabel from './SemLabel.jsx';
 
 const SemesterCourses = () => {
 
-    const {setCoursesList,totalCredits , coursesList, fallSem, setFallSem, setSpringSem, springSem} = useContext(Context);
+    const {setCoursesList, coursesList, fallSem, setFallSem, setSpringSem, springSem} = useContext(Context);
+    const {electiveCredits, minorCredits, setElectiveCredits, setMinorCredits} = useContext(ProgressContext);
+    const [coreCredits, setCoreCredits] = useState(0);
+    // console.log("elective ", electiveCredits);
+    // console.log("minor ", minorCredits);
 
    
 
@@ -16,6 +20,9 @@ const SemesterCourses = () => {
             accept: ItemTypes.COMPONENT,
             drop: (item, monitor) => {
                 let flag = 0;
+
+                
+                console.log("coreinside2 ", coreCredits, item.course.credits);
 
                 fallSem.map(course => {
                     if(course.code === item.course.code){
@@ -30,10 +37,23 @@ const SemesterCourses = () => {
 
                 if(flag === 0) {
                     setFallSem([...fallSem, item.course]);
-
-                    //agar coursesList ke state set ho chuki hai toh again state change mai puranai element kaise aa sakte hai??
+                   // setProgress({...progress, totalCredits: progress.totalCredits + item.course.credits});
+                   if (item.course.tag === 'core') {
+                    console.log("coreinside", coreCredits, item.course.credits);
+                    setCoreCredits(coreCredits + item.course.credits);
                     
-                    // setCoursesList(coursesList.filter(course => course.code !== item.course.code));
+                   }
+
+                   if (item.course.tag === 'elective') {
+                    setElectiveCredits(electiveCredits + item.course.credits);
+                    
+                   }
+
+                     if (item.course.tag === 'minor') {
+                      setMinorCredits(minorCredits + item.course.credits);
+                      
+                     }  
+                   
                 }
 
             },
@@ -65,11 +85,25 @@ const SemesterCourses = () => {
 
                 if(flag === 0) {
                     setSpringSem([...springSem, item.course]);
-
-                    // setCoursesList(coursesList.filter(course => course.code !== item.course.code));
-                
+                    if (item.course.tag === 'core') {
+                        console.log("coreinside", coreCredits, item.course.credits);
+                        let credits = coreCredits + item.course.credits;
+                        setCoreCredits(credits);
+                        
+                       }
+    
+                       if (item.course.tag === 'elective') {
+                        setElectiveCredits(electiveCredits + item.course.credits);
+                        
+                       }
+    
+                         if (item.course.tag === 'minor') {
+                          setMinorCredits(minorCredits + item.course.credits);
+                          
+                         }  
+                       
                 }
-
+                
 
 
             },
@@ -85,14 +119,21 @@ const SemesterCourses = () => {
     useEffect( ()=>{
 
         fallSem.map(course =>{
-           setCoursesList(coursesList.filter(courseD => courseD.code !== course.code));
+           
+            setCoursesList(coursesList.filter(courseD => courseD.code !== course.code));
+        
+
         })
 
     } , [fallSem])
 
     useEffect(() => {
+        
+        
         springSem.map(course =>{
             setCoursesList(coursesList.filter(courseD => courseD.code !== course.code));
+
+
          })
     }, [springSem])
 
@@ -102,7 +143,7 @@ const SemesterCourses = () => {
    
 
 
-
+console.log("core", coreCredits);
 
   return (
     <div className="sem-cont">

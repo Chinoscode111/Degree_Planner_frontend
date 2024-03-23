@@ -1,13 +1,18 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import CreateLabel, { ItemTypes } from "./CreateLabel"
 import { useDrop } from "react-dnd"
-import { Context } from "../../App"
+import { Context, ProgressContext } from "../../App"
 import searchIcon from "./images/search.svg"
 
 
 const LoadCourses = () =>{
 
     const {ogList, setCoursesList, coursesList, fallSem, setFallSem, springSem, setSpringSem} = useContext(Context);
+    const {coreCredits, electiveCredits, minorCredits, setCoreCredits, setElectiveCredits, setMinorCredits} = useContext(ProgressContext);
+
+
+
+
     coursesList.sort((a, b) => a.code.localeCompare(b.code));
     //console.log("coursesData", coursesList);
     //console.log("oglist", ogList)
@@ -253,11 +258,13 @@ const LoadCourses = () =>{
 
 
 
-console.log("fallsem", fallSem);
-console.log("spring sem", springSem);
+// console.log("fallsem", fallSem);
+// console.log("spring sem", springSem);
 
 
 
+let tag = "";
+let credits = 0;
 
 
     const [, dropCourse] = useDrop(
@@ -274,7 +281,22 @@ console.log("spring sem", springSem);
                 })
 
                 if(flag === 0){
+                    
                     setCoursesList([...coursesList, item.course]);
+
+                    credits = item.course.credits;
+
+                    if(item.course.tag === "core"){
+                        tag = "core";
+                    }
+                    else if(item.course.tag === "elective"){
+                        tag = "elective";
+                    }
+                    else if(item.course.tag === "minor"){
+                        tag = "minor";
+                    }
+
+
                 }
 
                 if(item.course.semester == 'spring'){
@@ -294,6 +316,7 @@ console.log("spring sem", springSem);
         }),
         [coursesList] // Add fallSem as a dependency
     );
+
 
 
     

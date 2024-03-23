@@ -7,6 +7,7 @@ import axios from 'axios'
 import { API_URL } from "./api/courses";
 
 export const Context = createContext();
+export const ProgressContext = createContext();
 
 
 const App = () => {
@@ -19,7 +20,13 @@ const App = () => {
     const [dataCourses, setDataCourses] = React.useState([])
     const [coursesList, setCoursesList] = React.useState([])
     const [ogList, setOgList] = React.useState([])
-    const [totalCredits, setTotalCredits] = React.useState(0)
+  
+
+    // const [coreCredits, setCoreCredits] = useState(0);
+    const [electiveCredits, setElectiveCredits] = useState(0);
+    const [minorCredits, setMinorCredits] = useState(0);
+    const [totalCredits, setTotalCredits] = useState(0);
+
 
     // console.log("start")
     useEffect(() => {
@@ -65,10 +72,12 @@ const App = () => {
 
     return(
 
-        <Context.Provider value={{ogList, coursesList, setCoursesList, fallSem, setFallSem, springSem, setSpringSem, totalCredits,setTotalCredits}}>
+        <Context.Provider value={{ogList, coursesList, setCoursesList, fallSem, setFallSem, springSem, setSpringSem}}>
+        <ProgressContext.Provider value={{ electiveCredits, setElectiveCredits, minorCredits, setMinorCredits  }}>
         <DndProvider backend={HTML5Backend}>
         <AppRouter />   
         </DndProvider>
+        </ProgressContext.Provider>
         </Context.Provider>
     )
 }
